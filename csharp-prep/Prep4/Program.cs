@@ -17,8 +17,9 @@ class Program
                 whileLoop = false;
                 int listSize = numbers.Count;
                 int listSum = 0;
-                float listAverage = 0;
+                float listAverage = 0F;
                 int listLargest = numbers[0];
+                int listSmallest = numbers[0];
                 for(int i = 0; i < listSize; i++)
                 {
                     listSum += numbers[i];
@@ -26,11 +27,16 @@ class Program
                     {
                         listLargest = numbers[i];
                     }
+                    else if(numbers[i] < listSmallest)
+                    {
+                        listSmallest = numbers[i];
+                    }
                 }
                 listAverage = listSum / listSize;
                 Console.WriteLine($"The sum is: {listSum}");
                 Console.WriteLine($"The average is: {listAverage}");
                 Console.WriteLine($"The Largest Number is: {listLargest}");
+                Console.WriteLine($"The Smallest Number is: {listSmallest}");
 
             }
             else
