@@ -32,7 +32,9 @@ class Program
                         listSmallest = numbers[i];
                     }
                 }
-                listAverage = listSum / listSize;
+                float tempListSum = listSum;
+                float tempListSize = listSize;
+                listAverage = tempListSum / tempListSize;
                 Console.WriteLine($"The sum is: {listSum}");
                 Console.WriteLine($"The average is: {listAverage}");
                 Console.WriteLine($"The Largest Number is: {listLargest}");
