@@ -24,8 +24,11 @@ public class PromptGenerator
             int RandomNumber = Rand.Next(1,6);
             return RandomNumber;
         }
-        public string uniquePromptGenerator()
+        public string UniquePromptGenerator()
         {
+            int TempRand = RandomNumberGen();
+            string TempPrompt = PromptList[TempRand];
+            return TempPrompt;
 
         }
      

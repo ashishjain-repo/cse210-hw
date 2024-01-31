@@ -6,24 +6,24 @@ static void Main(String[] args)
     Entry entry = new Entry();
     PromptGenerator promptGen = new PromptGenerator();
     
-    List<string> prompts = new List<string>();
+    List<string> Prompts = new List<string>();
     string[] tempPrompt = {"1. Write", "2. Display", "3. Load", "4. Save", "5. Quit"};
-    prompts.AddRange(tempPrompt);
+    Prompts.AddRange(tempPrompt);
     
-    bool whileLoop = true;
+    bool WhileLoop = true;
 
-    while (whileLoop)
+    while (WhileLoop)
     {
         Console.WriteLine("Please select the following choices: ");
-        foreach (string prompt in prompts)
+        foreach (string Prompt in Prompts)
         {
-            Console.WriteLine(prompt);
+            Console.WriteLine(Prompt);
         }
-        int localResponse = Convert.ToInt32(Console.ReadLine());    
-        switch(localResponse)
+        int LocalResponse = Convert.ToInt32(Console.ReadLine());    
+        switch(LocalResponse)
         {
             case 1: 
-                promptGen.RandomNumberGen();
+                
                 break;
             case 2: 
                 break;
@@ -32,7 +32,7 @@ static void Main(String[] args)
             case 4: 
                 break;
             case 5: 
-                whileLoop = false;
+                WhileLoop = false;
                 break;
         }
     }
