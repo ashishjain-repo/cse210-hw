@@ -4,7 +4,7 @@ class Program{
 static void Main(String[] args)
 {
     Entry entry = new Entry();
-    PromptGenerator promptGen = new PromptGenerator();
+    PromptGenerator PromptGen = new PromptGenerator();
     
     List<string> Prompts = new List<string>();
     string[] tempPrompt = {"1. Write", "2. Display", "3. Load", "4. Save", "5. Quit"};
@@ -22,8 +22,10 @@ static void Main(String[] args)
         int LocalResponse = Convert.ToInt32(Console.ReadLine());    
         switch(LocalResponse)
         {
-            case 1: 
-                
+            case 1:
+                    string RandomPrompt = PromptGen.UniquePromptGenerator();
+                    Console.WriteLine(RandomPrompt);
+
                 break;
             case 2: 
                 break;

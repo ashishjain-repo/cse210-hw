@@ -5,11 +5,10 @@ using System.Reflection.Metadata;
 
 public class PromptGenerator
 {
-    private string[] PromptListString;
     private List<string> PromptList = new List<string>();
-   public PromptGenerator(List<string> PromptListTemp)
+   public PromptGenerator()
     {
-        PromptList = PromptListTemp;
+        //PromptList = PromptListTemp;
         PromptList.Add("Reflect on a moment that challenged your perspective today.");
         PromptList.Add("Recall a small act of kindness you witnessed or participated in today.");
         PromptList.Add("Describe a new skill or piece of knowledge you acquired today.");
@@ -20,8 +19,8 @@ public class PromptGenerator
         Random Rand = new Random();
 
         private int RandomNumberGen()
-        {
-            int RandomNumber = Rand.Next(1,6);
+        {   
+            int RandomNumber = Rand.Next(0,5);
             return RandomNumber;
         }
         public string UniquePromptGenerator()
@@ -29,7 +28,6 @@ public class PromptGenerator
             int TempRand = RandomNumberGen();
             string TempPrompt = PromptList[TempRand];
             return TempPrompt;
-
         }
      
         
