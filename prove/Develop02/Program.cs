@@ -4,6 +4,7 @@ class Program{
 static void Main(String[] args)
 {
     Entry entry = new Entry();
+    PromptGenerator promptGen = new PromptGenerator();
     
     List<string> prompts = new List<string>();
     string[] tempPrompt = {"1. Write", "2. Display", "3. Load", "4. Save", "5. Quit"};
@@ -22,10 +23,11 @@ static void Main(String[] args)
         switch(localResponse)
         {
             case 1: 
+                promptGen.RandomNumberGen();
                 break;
             case 2: 
                 break;
-            case 3: 
+            case 3:         
                 break;
             case 4: 
                 break;

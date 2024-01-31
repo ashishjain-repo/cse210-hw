@@ -9,7 +9,7 @@ public class Entry
 
     public string _date = DateTime.Now.ToString("d/M/yyyy");
 
-    public void ShowDate()
+    public void AddEntry()
     {
         Console.WriteLine(_date);
     }
