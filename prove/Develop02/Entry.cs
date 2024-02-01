@@ -9,9 +9,9 @@ public class Entry
 
     public string _date = DateTime.Now.ToString("d/M/yyyy");
 
-    public void AddEntry()
+    public void GiveDate()
     {
-        Console.WriteLine(_date);
+        
     }
     
 
