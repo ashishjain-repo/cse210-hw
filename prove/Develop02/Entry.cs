@@ -20,9 +20,31 @@ public class Entry
         {
             writer.WriteLine(Prompt);
         }
+        writer.Close();
         Console.WriteLine("Your File has been succesfully created");
 
     }
-    
+    public void SavedFileLoader(string FileName)
+    {
+        try
+        {
+
+        
+        string DirectoryPath = Environment.CurrentDirectory;
+        string FullPath = DirectoryPath+ '\\' + FileName;
+        StreamReader reader = new StreamReader(FullPath);
+        string PromptData = reader.ReadLine();
+        while (PromptData != null)
+        {
+            Console.WriteLine(PromptData);
+            PromptData = reader.ReadLine();
+        }
+        reader.Close();
+        }
+        catch
+        {
+            Console.WriteLine($"File Error: File named '{FileName}' does not exist in this directory.\n");
+        }
+    }
 
 }

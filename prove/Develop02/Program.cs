@@ -34,6 +34,9 @@ while (WhileLoop)
             }
             break;
         case 3:
+            Console.WriteLine("Please enter the name of the file: ");
+            string TempFileName = Console.ReadLine();
+            entry.SavedFileLoader(TempFileName);
             break;
         case 4:
             Console.WriteLine("What is the filename");
@@ -42,6 +45,9 @@ while (WhileLoop)
             break;
         case 5:
             WhileLoop = false;
+            break;
+        default:
+            Console.WriteLine("Please enter from only given options (1-5)\n");
             break;
     }
 }
