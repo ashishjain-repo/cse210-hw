@@ -1,16 +1,20 @@
 <data>
     <item>
+        <index>0</index>
         <id>2 Nephi 5:1</id>
-        <name>Behold, it came to pass that I, Nephi, did cry much unto the Lord my God, because of the anger of my brethren.
-        </name>
+        <content>Behold, it came to pass that I, Nephi, did cry much unto the Lord my God, because of the anger of my brethren.
+        </content>
     </item>
     <item>
+        <index>1</index>
         <id>Mosiah 3:6</id>
-        <name>And he shall cast out devils, or the evil spirits which dwell in the hearts of the children of men.
-        </name>
+        <content>And he shall cast out devils, or the evil spirits which dwell in the hearts of the children of men.
+        </content>
     </item>
     <item>
+        <index>2</index>
         <id>Ether 12:1</id>
-        <name>And it came to pass that the days of Ether were in the days of Coriantumr; and Coriantumr was king over all the land.</name>
+        <content>And it came to pass that the days of Ether were in the days of Coriantumr; and Coriantumr was king over all the land.
+    </content> 
     </item>
 </data>
