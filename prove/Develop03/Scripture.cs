@@ -1,4 +1,4 @@
     class Scripture
     {
-        private string _scripture
+        private string _scripture;
     }
