@@ -1,52 +1,58 @@
+using System;
+using System.Diagnostics;
 using System.Security.Cryptography;
 
 class Reference
 {
-    public int ScriptId {get; set;}
-    public string ScriptReference {get; set;}
-    public string ScriptVerse {get; set;}
-    public string[,] Scripture {get; set;}
-    /* public string[,] Scripture = {
-            {
-                "1"
-                ,"2 Nephi 5:1"
-                ,"Behold, it came to pass that I, Nephi, did cry much unto the Lord my God, because of the anger of my brethren."
-            },
-            {
-                "2"
-                ,"Mosiah 3:6"
-                ,"And he shall cast out devils, or the evil spirits which dwell in the hearts of the children of men."
-            },
-            {
-                "3"
-                ,"Ether 12:1"
-                ,"And it came to pass that the days of Ether were in the days of Coriantumr; and Coriantumr was king over all the land."
-            }
-        }; */
-    public Random RandomNum = new Random();
-    public Reference(int id, string reference, string verse, string[,] allScripture, int randomNumber)
+    public int ScriptId { get; set; }
+    public string ScriptReference { get; set; }
+    public string ScriptVerse { get; set; }
+
+    public Reference()
+    {
+
+    }
+    public Reference(int id, string reference, string verse)
     {
         ScriptId = id;
         ScriptReference = reference;
         ScriptVerse = verse;
-        string[,] Scripture = {
-            {
-                "1"
-                ,"2 Nephi 5:1"
-                ,"Behold, it came to pass that I, Nephi, did cry much unto the Lord my God, because of the anger of my brethren."
-            },
-            {
-                "2"
-                ,"Mosiah 3:6"
-                ,"And he shall cast out devils, or the evil spirits which dwell in the hearts of the children of men."
-            },
-            {
-                "3"
-                ,"Ether 12:1"
-                ,"And it came to pass that the days of Ether were in the days of Coriantumr; and Coriantumr was king over all the land."
-            }
-        };
-        
     }
 
+    public (int, string, string) RandomVerse(int ScriptID, string ScriptReference, string ScriptVerse) // Change method name
+    {
+        string[,] myScripture = new string[3, 3];
+        // Hardcoded values
+        myScripture[0, 0] = "1";
+        myScripture[0, 1] = "2 Nephi 5:1";
+        myScripture[0, 2] = "Behold, it came to pass that I, Nephi, did cry much unto the Lord my God, because of the anger of my brethren.";
+        myScripture[1, 0] = "2";
+        myScripture[1, 1] = "Mosiah 3:6";
+        myScripture[1, 2] = "And he shall cast out devils, or the evil spirits which dwell in the hearts of the children of men.";
+        myScripture[2, 0] = "3";
+        myScripture[2, 1] = "Ether 12:1";
+        myScripture[2, 2] = "And it came to pass that the days of Ether were in the days of Coriantumr; and Coriantumr was king over all the land.";
+
+        Random Rand = new Random();
+        int tempRand = Rand.Next(1, 3);
+
+        // Not used anymore after hardcoding
+        // ScriptID = Convert.ToInt32(myScripture[tempRand,0]);
+        // ScriptReference = myScripture[tempRand,1];
+        // ScriptVerse = myScripture[tempRand,2];
+
+        // Access specific verse based on hardcoded reference
+        int chosenIndex = tempRand; // Assuming "2 Nephi 5:1"
+        
+        /* Console.WriteLine($"Script ID: {myScripture[chosenIndex, 0]}");
+        Console.WriteLine($"Script Reference: {myScripture[chosenIndex, 1]}");
+        Console.WriteLine($"Script Verse: {myScripture[chosenIndex, 2]}"); */
+        return
+        (
+        ScriptID = Convert.ToInt32(myScripture[chosenIndex,0]),
+        ScriptReference = myScripture[chosenIndex,1],
+        ScriptVerse = myScripture[chosenIndex,2]
+        );
+
+    }
 }
