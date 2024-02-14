@@ -7,10 +7,17 @@ class Program
         string reference = "";
         string verse = "";
         Reference Ref1 = new Reference(id, reference, verse);
-        Reference ref2 = new Reference();
         (id, reference, verse) = Ref1.RandomVerse(Ref1.ScriptId, Ref1.ScriptReference, Ref1.ScriptVerse);
-        Console.WriteLine(verse);
-        // Ref1.RandomVerse();
+        Scripture Scr1 = new Scripture();
+        Scr1.ShowScripture(reference);
+        Word Wor1 = new Word(verse);
+        List<string> ScriptureSplits = new List<string>();
+        ScriptureSplits = Wor1.StringToList(verse);
+        foreach (var word in ScriptureSplits)
+        {
+            Console.Write($"{word} ");
+        }
+        
     
     }
 }

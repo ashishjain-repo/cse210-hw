@@ -1,7 +1,10 @@
 
     class Scripture
     {
-        private string _scripture;
-        private string _scriptureText;
-        private string _scriptureReference;
+        public string ScriptureReference {get; set;}
+        public string ScriptureVerse {get; set;}
+        public void ShowScripture(string ScriptureReference)
+        {
+            Console.WriteLine($"Scripture Reference: {ScriptureReference}");
+        }
     }

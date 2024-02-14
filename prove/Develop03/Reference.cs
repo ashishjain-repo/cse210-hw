@@ -34,19 +34,11 @@ class Reference
         myScripture[2, 2] = "And it came to pass that the days of Ether were in the days of Coriantumr; and Coriantumr was king over all the land.";
 
         Random Rand = new Random();
-        int tempRand = Rand.Next(1, 3);
+        int tempRand = Rand.Next(0, 3);
 
-        // Not used anymore after hardcoding
-        // ScriptID = Convert.ToInt32(myScripture[tempRand,0]);
-        // ScriptReference = myScripture[tempRand,1];
-        // ScriptVerse = myScripture[tempRand,2];
 
-        // Access specific verse based on hardcoded reference
         int chosenIndex = tempRand; // Assuming "2 Nephi 5:1"
-        
-        /* Console.WriteLine($"Script ID: {myScripture[chosenIndex, 0]}");
-        Console.WriteLine($"Script Reference: {myScripture[chosenIndex, 1]}");
-        Console.WriteLine($"Script Verse: {myScripture[chosenIndex, 2]}"); */
+
         return
         (
         ScriptID = Convert.ToInt32(myScripture[chosenIndex,0]),
