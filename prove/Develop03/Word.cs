@@ -13,4 +13,10 @@ class Word
         List<string> WordsList = new List<string>(tempString);
         return WordsList;
     }
+    public int WordsToRemove()
+    {
+        Random Rand = new Random();
+        int tempRand = Rand.Next(1,5);
+        return tempRand;
+    }
 }
