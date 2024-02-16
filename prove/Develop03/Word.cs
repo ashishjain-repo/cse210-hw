@@ -19,4 +19,15 @@ class Word
         int tempRand = Rand.Next(1,5);
         return tempRand;
     }
+    public (List<int>, List<int>) UpdateLists(List<int> ContentList, List<int> DeletedTemp, List<int> ContentTemp)
+    {   
+        int Rand = WordsToRemove();
+        DeletedTemp = ContentList.GetRange(0,Rand);
+        ContentList.RemoveRange(0,Rand);
+        return 
+        (   
+            ContentList,
+            DeletedTemp
+        );
+    }
 }
