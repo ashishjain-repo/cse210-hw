@@ -23,7 +23,24 @@ class Program
         List<int> ContentTemp  = new List<int>();
         List<int> DeletedTemp  = new List<int>();
 
-        ContentListIndex = ScriptureSplits.Select((ScriptureSplits,index)=>index).ToList();
+        ContentListIndex = Wor1.ReturnListIndex(ScriptureSplits);
+        DeletedListIndex = Wor1.RemoveRandomNumbers(ContentListIndex);
+        foreach(int var in ContentListIndex)
+        {
+            Console.WriteLine(var);
+        }
+        foreach(int var in DeletedListIndex)
+        {
+            Console.WriteLine(var);
+        }
+
+        
+        /* (ContentListIndex,DeletedTemp) = Wor1.UpdateLists(ContentListIndex, ContentTemp, DeletedTemp);
+        Console.WriteLine(ContentListIndex);
+        Console.WriteLine(DeletedTemp); */
+
+
+        // ContentListIndex = ScriptureSplits.Select((ScriptureSplits,index)=>index).ToList();
 
         
 
