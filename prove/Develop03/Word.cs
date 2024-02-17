@@ -1,3 +1,4 @@
+using System.Net.Mime;
 using System.Reflection.Metadata.Ecma335;
 
 class Word
@@ -37,7 +38,7 @@ class Word
     {
         List<int> DeletetedIndexList = new List<int>();
         Random Rand = new Random();
-        int ToRemove = WordsToRemove();
+        int ToRemove = 3;
 
         for (int i = 0; i < ToRemove; i++)
         {
@@ -47,5 +48,18 @@ class Word
         }
 
         return DeletetedIndexList;
+    }
+
+    public List<string> IndexReplacer(List<string> ContentList, List<int>DeletedIndexList)
+    {
+        List<string> tempList = new List<string>(ContentList);
+        for(int i = 0; i < ContentList.Count; i++)
+        {
+            if(DeletedIndexList.Contains(i))
+            {
+                tempList[i] = "_";
+            }
+        }
+        return tempList;
     }
 }
