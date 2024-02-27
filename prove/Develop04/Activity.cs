@@ -6,6 +6,10 @@ class Activity
     public string Description {get; set;}
     public int Duration {get; set;}
     
+    public Activity()
+    {
+
+    }
     public Activity(string smessage, string emessage, string aname, string description, int duration)
     {
         StartingMessage = smessage;
@@ -16,6 +20,13 @@ class Activity
     }
     public void Spinner()
     {
+        string[] spinnerSymbol = {"+","|","/","-","\\","|","/","-","\\","|"};
+        foreach(string temp in spinnerSymbol)
+        {
+            Console.Write(temp);
+            Thread.Sleep(500);
+            Console.Write("\b \b");
+        }
 
     }
 
@@ -31,9 +42,13 @@ class BreathingActivity : Activity
     {
         
     }
-    public void BreathingMessage()
+    public int BreathingMessage()
     {
-        
+        Console.Clear();
+        Console.WriteLine($"{StartingMessage}\n\n{Description}\n");
+        Console.Write("How Long, in seconds, would you like for you session? ");
+        int activityDuration = Convert.ToInt32(Console.ReadLine());
+        return activityDuration;
     }
     public void BreathingTimer()
     {
