@@ -31,6 +31,16 @@ class Activity
         }
 
     }
+    public void NumberIterator()
+    {
+        string[] iteratorSymbol = {"3","2","1","0"};
+        foreach(string temp in iteratorSymbol)
+        {
+            Console.Write(temp);
+            Thread.Sleep(500);
+            Console.Write("\b \b");
+        }
+    }
 
     public void CountDownTimer()
     {
@@ -59,7 +69,12 @@ class BreathingActivity : Activity
         {
             for(int i = 0; i < (duration/4); i++)
             {
-                Console.WriteLine("Hello");
+                Console.Write("Breathe In....");
+                NumberIterator();
+                Console.WriteLine("\n");
+                Console.Write("Breathe Out....");
+                NumberIterator();
+                Console.WriteLine("\n");
             }
         }
         else
@@ -67,7 +82,7 @@ class BreathingActivity : Activity
             duration++;
             for(int i = 0; i < (duration/4); i++)
             {
-                Console.WriteLine("Hello");
+                
             }
         }
         BreathingCompletion(duration);
