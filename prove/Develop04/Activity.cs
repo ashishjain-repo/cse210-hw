@@ -1,3 +1,5 @@
+using System;
+using System.Timers;
 class Activity
 {
     public string StartingMessage {get; set;}
@@ -48,15 +50,34 @@ class BreathingActivity : Activity
         Console.WriteLine($"{StartingMessage}\n\n{Description}\n");
         Console.Write("How Long, in seconds, would you like for you session? ");
         int activityDuration = Convert.ToInt32(Console.ReadLine());
+        Duration = activityDuration;
         return activityDuration;
     }
-    public void BreathingTimer()
+    public void BreathingTimer(int duration)
     {
-
+        if(duration%2 == 0)
+        {
+            for(int i = 0; i < (duration/4); i++)
+            {
+                Console.WriteLine("Hello");
+            }
+        }
+        else
+        {
+            duration++;
+            for(int i = 0; i < (duration/4); i++)
+            {
+                Console.WriteLine("Hello");
+            }
+        }
+        BreathingCompletion(duration);
     }
-    public void BreathingCompletion()
+    public void BreathingCompletion(int duration)
     {
-
+        Console.WriteLine("Well Done!!");
+        Spinner();
+        Console.WriteLine($"You have completed another {duration} seconds of the {ActivityName}");
+        Spinner();
     }
 }
 class ReflectionActivity : Activity

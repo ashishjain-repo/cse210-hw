@@ -29,7 +29,7 @@ class Program
             choiceOption = Convert.ToInt32(Console.ReadLine());
             // mainLoop = false;
             if(choiceOption == 1)
-            {
+            {   
                 Duration = 0;
                 ActivityName = "Breathing Activity";
                 StartingMessage = $"Welcome to the {ActivityName}.";
@@ -38,8 +38,9 @@ class Program
                 BreathingActivity breathing = new BreathingActivity(StartingMessage, EndingMessage, ActivityName, Description, Duration);
                 
                 int tempDuration = breathing.BreathingMessage();
-                Console.WriteLine(tempDuration);
                 activity.Spinner();
+                breathing.BreathingTimer(tempDuration);
+                Console.Clear();
             }
             else if(choiceOption == 2)
             {
