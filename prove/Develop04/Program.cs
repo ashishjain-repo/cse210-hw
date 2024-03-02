@@ -43,8 +43,20 @@ class Program
                 Console.Clear();
             }
             else if(choiceOption == 2)
-            {
+            {   
+                Duration = 0;
+                ActivityName = "Reflecting Activity";
+                StartingMessage = $"Welcome to the {ActivityName}.";
+                EndingMessage = $"You have completed another {Duration} seconds of the {ActivityName}";
+                Description = "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.";
+                
+                ReflectionActivity reflection = new ReflectionActivity(StartingMessage, EndingMessage, ActivityName, Description, Duration);
+
                 activity.Spinner();
+                int tempDuration = reflection.ReflectionMessage();
+                reflection.ReflectionPrompt();
+                reflection.ReflectionQuestions();
+                Console.Clear();
             }
             else if(choiceOption == 3)
             {
