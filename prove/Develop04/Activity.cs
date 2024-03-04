@@ -1,5 +1,6 @@
 using System;
 using System.Timers;
+
 class Activity
 {
     public string StartingMessage {get; set;}
@@ -68,9 +69,19 @@ public void SpinnerTimed(int time)
         Console.WriteLine("\n");
     }
 
-    public void CountDownTimer()
+    public void CountDownTimer(int time, int times)
     {
+        string[] spinnerSymbol = {"+","|","/","-","\\","|","/","-","\\","|"};
+        for(int i = 0; i < times; i++)
+        {
 
+        foreach(string temp in spinnerSymbol)
+        {
+            Console.Write(temp);
+            Thread.Sleep(time);
+            Console.Write("\b \b");
+        }
+        }
     }
 }
 class BreathingActivity : Activity
@@ -168,41 +179,55 @@ class ReflectionActivity : Activity
         Console.WriteLine("Now ponder on each of the following questions as they related to this experience");
         Console.Write("You may begin in: "); NumberIteratorTimed(1);
     }
-    public void ReflectionResponse(int time)
+    public void ReflectionResponse()
     {
+        List<int> tempIndex = new List<int>();
         Random Rand = new Random();
-        int listLength = PromptsList.Count();
-        int[] tempListIndex = null;
-        for(int i = 0; i<3; i++)
+        for(int i = 0; i < PromptsList.Count(); i++)
         {
-            tempListIndex[i] = Rand.Next(0,listLength);
+            int tempNum = Rand.Next(0,PromptsList.Count());
+            if(tempIndex.Contains(tempNum))
+            {
+                continue;
+            }
+            else
+            {
+                tempIndex.Add(tempNum);
+            }
+
         }
-        if(time % 2 == 0)
+        for(int i = 0; i < 1; i++)
         {
-            time*=1000;
+            Console.WriteLine($"> {PromptsList[tempIndex[0]]}");
+            CountDownTimer(1000,2);
+        }
+    }
+    public void ReflectionCompletion(int time)
+    {
+        Console.WriteLine("Well Done!!");
+            Spinner();
+            Console.WriteLine($"You have completed another {time} seconds of the {ActivityName}");
+            Spinner();
+    }
+    public void ReflectionTimed(int time)
+    {   
+        // Console.WriteLine(time);
+        bool inBool = true;
+        int tempTime = 0;
+        while(inBool)
+        {
+            tempTime+=15;
+        if(tempTime <= time)
+        {
+            ReflectionResponse();
         }
         else
         {
-            time++;
-            time*=1000;
+            
+            ReflectionCompletion(time);
+            inBool= false;
         }
-        bool insideBool = true;
-        int counter = 0;
-        while(insideBool)
-        {
-            if(counter == time)
-            {
-                insideBool = false;
-            }
-            foreach(var temp in tempListIndex)
-            {
-                Console.WriteLine(PromptsList[temp]);
-            }
         }
-    }
-    public void ReflectionCompletion()
-    {
-
     }
 }
 class ListingActivity : Activity

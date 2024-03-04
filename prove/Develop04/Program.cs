@@ -57,6 +57,9 @@ class Program
                 reflection.ReflectionPrompt();
                 reflection.ReflectionQuestions();
                 Console.Clear();
+                // int tempDuration = Convert.ToInt32(Console.ReadLine());
+                reflection.ReflectionTimed(tempDuration);
+                Console.Clear();
             }
             else if(choiceOption == 3)
             {
