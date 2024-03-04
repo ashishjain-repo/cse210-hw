@@ -232,29 +232,58 @@ class ReflectionActivity : Activity
 }
 class ListingActivity : Activity
 {
-    public List<string> Prompts = new List<string>();
+    public string[] Prompts = 
+    {
+        "Who are people that you appreciate?",
+        "What are personal strengths of yours?",
+        "Who are people that you have helped this week?",
+        "When have you felt the Holy Ghost this month?",
+        "Who are some of your personal heroes?"
+    };
+    public List<string> userResponse = new List<string>();
     public ListingActivity(string StartingMessage, string EndingMessage, string ActivityName, string Description, int Duration) : base(StartingMessage, EndingMessage, ActivityName, Description, Duration)
     {
         
     }
-    public void ListingMessage()
+    public int ListingMessage()
     {
+        Console.Clear();
+        Console.WriteLine($"{StartingMessage}\n\n{Description}\n");
+        Console.Write("How Long, in seconds, would you like for you session? ");
+        int activityDuration = Convert.ToInt32(Console.ReadLine());
+        Duration = activityDuration;
+        return activityDuration;
+    }
+    public void ListingPrompt()
+    {
+        Random Rand = new Random();
+        int promptLength = Prompts.Count();
+        int randomElement = Rand.Next(0,promptLength);
+        Console.WriteLine("List as many responses you can to the following prompt: ");
+        Console.WriteLine($"--- {Prompts[randomElement]} ---");
+        Console.Write("You may begin in: ");
+        NumberIteratorTimed(1);
 
     }
-    public void ReflectionPrompt()
+    /* public void ReflectionQuestions(int time)
     {
-
+        
+    } */
+    public void ListingResponse(int time)
+    {
+        DateTime endTime = DateTime.Now.AddSeconds(time);
+        while(DateTime.Now < endTime)
+        {
+            Console.Write("> ");
+            string userInput = Console.ReadLine();
+            userResponse.Add(userInput);
+        }
+        Console.WriteLine($"You listed {userResponse.Count()} items!");
+        Console.WriteLine("Well Done !!");
+        Spinner();
     }
-    public void ReflectionQuestions()
+    public void ListingCompletion(int time)
     {
-
-    }
-    public void ReflectionResponse()
-    {
-
-    }
-    public void ReflectionCompletion()
-    {
-
+        Console.WriteLine($"You have completed another {time} seconds of the Listing Activity");
     }
 }

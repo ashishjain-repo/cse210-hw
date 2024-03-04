@@ -63,7 +63,17 @@ class Program
             }
             else if(choiceOption == 3)
             {
-
+                Duration = 0;
+                ActivityName = "Listing Activity";
+                StartingMessage = $"Welcome to the {ActivityName}.";
+                EndingMessage = $"You have completed another {Duration} seconds of the {ActivityName}";
+                Description = "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area";
+                ListingActivity listing = new ListingActivity(StartingMessage, EndingMessage, ActivityName, Description, Duration);
+                int tempDuration = listing.ListingMessage();
+                listing.ListingPrompt();
+                listing.ListingResponse(tempDuration);
+                listing.ListingCompletion(tempDuration);
+                Console.Clear();
             }
             else if(choiceOption == 4)
             {
