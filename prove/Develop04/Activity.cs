@@ -3,11 +3,11 @@ using System.Timers;
 
 class Activity
 {
-    public string StartingMessage {get; set;}
-    public string EndingMessage {get; set;}
-    public string ActivityName {get; set;}
-    public string Description {get; set;}
-    public int Duration {get; set;}
+    protected string StartingMessage {get; set;}
+    protected string EndingMessage {get; set;}
+    protected string ActivityName {get; set;}
+    protected string Description {get; set;}
+    protected int Duration {get; set;}
     
     public Activity()
     {

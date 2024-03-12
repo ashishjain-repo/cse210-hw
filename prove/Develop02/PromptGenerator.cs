@@ -27,7 +27,6 @@ public class PromptGenerator
             string TempPrompt = _promptlist[TempRand];
             return TempPrompt;
         }
-     
         
 }
 /*
