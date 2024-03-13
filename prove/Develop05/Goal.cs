@@ -3,11 +3,11 @@ class Goal
     protected int _points = 0;
     protected string[] menuOptions = {"1. Create New Goal","2. List Goals", "3. Save Goals", "4. Load Goals", "5. Record Event", "6. Quit"};
     protected string[] goalTypes = {"1. Simple Goals", "2. Eternal Goals","3. Checklist Goals"};
-
-        
-    public Goal(int Points)
+    protected List<string> _goals = new List<string>();
+    public Goal(int Points, List<string> Goals)
     {
         Points = _points;
+        Goals = _goals;
     }
     public int ShowMenu()
     {
