@@ -9,12 +9,12 @@ class Program
         {
             List<string> Goals = new List<string>();
             int Points = 0;
-            Goal goal1 = new Goal(Points, Goals);
-            int MenuChoice = goal1.ShowMenu();
+            Goal goal = new Goal(Points, Goals);
+            int MenuChoice = goal.ShowMenu();
             switch (MenuChoice)
             {
                 case 1:
-                    int GoalType = goal1.NewGoal();
+                    int GoalType = goal.NewGoal();
                     bool GoalTypeBool = true;
                     while (GoalTypeBool)
                     {
