@@ -1,21 +1,28 @@
 using System.Dynamic;
 using System.Collections.Generic;
+using System.Text.Json;
+using System.IO;
+
 class Goal
 {
-    protected int _points {get; set;}
-    protected Dictionary<string,string> _goals = new Dictionary<string, string>();
-    public Goal(int Points, Dictionary<string,string> Goals)
+    protected int _points { get; set; }
+    protected Dictionary<string, string> _goals = new Dictionary<string, string>();
+    public Goal(int Points, Dictionary<string, string> Goals)
     {
         Points = _points;
         Goals = _goals;
-        
-        
+
+
+    }
+    public void ShowPoints(int Points)
+    {
+        Console.WriteLine($"You have {Points} points.");
     }
     public int ShowMenu()
     {
-        string[] menuOptions = {"1. Create New Goal","2. List Goals", "3. Save Goals", "4. Load Goals", "5. Record Event", "6. Quit"};
+        string[] menuOptions = { "1. Create New Goal", "2. List Goals", "3. Save Goals", "4. Load Goals", "5. Record Event", "6. Quit" };
         Console.WriteLine("Menu Options:");
-        for(int i = 0; i < menuOptions.Count(); i++)
+        for (int i = 0; i < menuOptions.Count(); i++)
         {
             Console.WriteLine($"\t{menuOptions[i]}");
         }
@@ -26,9 +33,9 @@ class Goal
     // Options Functions
     public int NewGoal()
     {
-        string[] goalTypes = {"1. Simple Goals", "2. Eternal Goals","3. Checklist Goals"};
+        string[] goalTypes = { "1. Simple Goals", "2. Eternal Goals", "3. Checklist Goals" };
         Console.WriteLine("The Types of goals are: ");
-        for(int i = 0; i < goalTypes.Count(); i++)
+        for (int i = 0; i < goalTypes.Count(); i++)
         {
             Console.WriteLine($"\t{goalTypes[i]}");
         }
@@ -36,12 +43,16 @@ class Goal
 
         return Choice;
     }
+    public void GoalEntry(Dictionary<int, Dictionary<string, string>> Goals, Dictionary<string, string> TempGoals, int Count)
+    {
+        Goals.Add(Count, TempGoals);
+    }
 
-    public void ListGoals(Dictionary<int, Dictionary<string,string>> Goals, int Count)
+    public void ListGoals(Dictionary<int, Dictionary<string, string>> Goals, int Count)
     {
         Console.WriteLine("The goals are: ");
         int counter = 0;
-        for(int i = 0; i < Count; i++)
+        for (int i = 0; i < Count; i++)
         {
             counter++;
             string type = Goals[i]["Goal-Type"];
@@ -51,16 +62,23 @@ class Goal
         }
     }
 
-    public void ShowPoints(int Points)
+    public void SaveGoals(Dictionary<int, Dictionary<string, string>> Goals)
     {
-        Console.WriteLine($"You have {Points} points.");
+        Console.WriteLine("Enter the name of the file (Without Externsion: )");
+        string fileName = Console.ReadLine();
+        string filePath = $"{fileName}.json";
+        string json = JsonSerializer.Serialize
+        (
+            Goals, new JsonSerializerOptions
+            {
+                WriteIndented = true
+            }
+        );
+        File.WriteAllText(filePath, json);
     }
-    public virtual void GoalEntry(Dictionary<string,string> Goals)
+    public virtual void GoalEntry(Dictionary<string, string> Goals)
     {
 
     }
-    public void GoalEntry(Dictionary<int,Dictionary <string,string>> Goals, Dictionary<string,string> TempGoals, int Count)
-    {
-        Goals.Add(Count, TempGoals);
-    }
+
 }

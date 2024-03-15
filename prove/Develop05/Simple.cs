@@ -18,5 +18,6 @@ class Simple : Goal
         string GoalPoint = Console.ReadLine();
         Goals["Goal-Point"] = GoalPoint;
         Goals["Goal-Done"] = " ";
+        Goals["Goal-Member"] = "Simple";
     }
 }

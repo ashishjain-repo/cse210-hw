@@ -4,7 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        Dictionary<int,Dictionary<string, string>> Goals = new Dictionary<int, Dictionary<string, string>>();
+        Dictionary<int, Dictionary<string, string>> Goals = new Dictionary<int, Dictionary<string, string>>();
         int Count = 0;
         int Points = 0;
         bool MainLoop = true;
@@ -45,9 +45,10 @@ class Program
                     }
                     break;
                 case 2:
-                goal.ListGoals(Goals,Count);
+                    goal.ListGoals(Goals, Count);
                     break;
                 case 3:
+                    goal.SaveGoals(Goals);
                     break;
                 case 4:
                     break;
