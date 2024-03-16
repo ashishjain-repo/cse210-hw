@@ -28,6 +28,7 @@ class Checklist : Goal
         string GoalBonusPoints = Console.ReadLine();
         Goals["Goal-Bonus-Points"] = GoalBonusPoints;
 
+        Goals["Goal-Times-Done"] = "0";
         // Goal Done is to check whether it is true or false, if true should be reaplaced with 'X'
         Goals["Goal-Done"] = " ";
         // This is for the type of quest to make other functions easy to read.

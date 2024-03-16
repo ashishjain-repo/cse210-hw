@@ -74,20 +74,24 @@ class Goal
     {
         Console.WriteLine("The goals are: ");
         int counter = 0;
-        int complete = 0;
         for (int i = 0; i < Count; i++)
         {
             counter++;
             string type = Goals[i]["Goal-Type"];
             string desc = Goals[i]["Goal-Desc"];
             string done = Goals[i]["Goal-Done"];
-            if(Goals[i]["Goal-Done"] == "X")
+            if(Goals[i].ContainsKey("Goal-Bonus"))
             {
-                complete++;
+                string totalGoals = Goals[i]["Goal-Bonus"];
+                string goalsDone = Goals[i]["Goal-Times-Done"];
+                Console.WriteLine($"{counter}. [{done}] {type} ({desc})");
+                Console.Write($"\t -- Currently Completed: {goalsDone}/{totalGoals}");
             }
-            Console.WriteLine($"{counter}. [{done}] {type} ({desc})");
+            else
+            {
+                Console.WriteLine($"{counter}. [{done}] {type} ({desc})");
+            }
         }
-        Console.Write($" --- Currently completed: {complete}/{counter}");
     }
 
     public void SaveGoals(Dictionary<int, Dictionary<string, string>> Goals)
@@ -134,13 +138,22 @@ class Goal
         {
             int tempPoints = Convert.ToInt32(Goals[tempChoice]["Goal-Point"]);
             innerPoints+=tempPoints;
-            Goals[tempChoice]["Goal-Done"] = "X";
             if(Goals[tempChoice].ContainsKey("Goal-Bonus"))
             {
-                int tempBonus = Convert.ToInt32(Goals[tempChoice]["Goal-Bonus"]);
-                int tempBonusTimes = Convert.ToInt32(Goals[tempChoice]["Goal-Bonus-Points"]);
+                int tempBonus = Convert.ToInt32(Goals[tempChoice]["Goal-Bonus-Points"]);
+                int tempBonusTimes = Convert.ToInt32(Goals[tempChoice]["Goal-Bonus"]);
+                int tempGoalDone = Convert.ToInt32(Goals[tempChoice]["Goal-Times-Done"]);
+                Goals[tempChoice]["Goal-Times-Done"] = Convert.ToString(tempGoalDone+1);
+                if(Goals[tempChoice]["Goal-Times-Done"] == Goals[tempChoice]["Goal-Bonus"])
+                {
                 int BonusPoints = tempBonus * tempBonusTimes;
                 innerPoints+=BonusPoints;
+                Goals[tempChoice]["Goal-Done"] = "X";
+                }
+            }
+            else
+            {
+                Goals[tempChoice]["Goal-Done"] = "X";
             }
     Console.WriteLine($"Congratulations! You have earned {innerPoints} points!");
         }
