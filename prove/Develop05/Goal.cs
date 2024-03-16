@@ -52,14 +52,20 @@ class Goal
     {
         Console.WriteLine("The goals are: ");
         int counter = 0;
+        int complete = 0;
         for (int i = 0; i < Count; i++)
         {
             counter++;
             string type = Goals[i]["Goal-Type"];
             string desc = Goals[i]["Goal-Desc"];
             string done = Goals[i]["Goal-Done"];
+            if(Goals[i]["Goal-Done"] == "X")
+            {
+                complete++;
+            }
             Console.WriteLine($"{counter}. [{done}] {type} ({desc})");
         }
+        Console.Write($" --- Currently completed: {complete}/{counter}");
     }
 
     public void SaveGoals(Dictionary<int, Dictionary<string, string>> Goals)
@@ -75,6 +81,29 @@ class Goal
             }
         );
         File.WriteAllText(filePath, json);
+        Console.WriteLine($"You succesfully saved the file named: {filePath}");
+    }
+    public (Dictionary<int, Dictionary<string, string>>, int) LoadGoals()
+    {   
+        Console.WriteLine("What is the filename for the goal file? ");
+        string filename = Console.ReadLine();
+        string filePath = $"{filename}.json";
+        string jsonString = File.ReadAllText(filePath);
+
+        Dictionary<int, Dictionary<string, string>> localDict = JsonSerializer.Deserialize<Dictionary<int, Dictionary<string, string>>>(jsonString);
+        int count = localDict.Count();
+        return (localDict, count);
+    }
+
+    public void RecordEvent(Dictionary<int, Dictionary<string, string>> Goals)
+    {
+        int counter = 0;
+        Console.WriteLine("The goals are: ");
+        for (int i = 0; i < Goals.Count(); i++)
+        {
+            counter++;
+            Console.WriteLine($"{counter}. {Goals[i]["Goal-Type"]}");
+        }
     }
     public virtual void GoalEntry(Dictionary<string, string> Goals)
     {

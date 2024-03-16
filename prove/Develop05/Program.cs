@@ -31,10 +31,18 @@ class Program
                         }
                         else if (GoalType == 2)
                         {
+                            Eternal eternalGoal = new Eternal(Points, TempGoals);
+                            eternalGoal.GoalEntry(TempGoals);
+                            goal.GoalEntry(Goals, TempGoals, Count);
+                            Count++;
                             GoalTypeBool = false;
                         }
                         else if (GoalType == 3)
                         {
+                            Checklist checklistGoal = new Checklist(Points, TempGoals);
+                            checklistGoal.GoalEntry(TempGoals);
+                            goal.GoalEntry(Goals, TempGoals, Count);
+                            Count++;
                             GoalTypeBool = false;
                         }
                         else
@@ -51,8 +59,10 @@ class Program
                     goal.SaveGoals(Goals);
                     break;
                 case 4:
+                    (Goals, Count) = goal.LoadGoals();
                     break;
                 case 5:
+                    goal.RecordEvent(Goals);
                     break;
                 case 6:
                     MainLoop = false;

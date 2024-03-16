@@ -17,7 +17,9 @@ class Simple : Goal
         Console.WriteLine("What is the number of points associated with this goal? ");
         string GoalPoint = Console.ReadLine();
         Goals["Goal-Point"] = GoalPoint;
+        // Goal Done is to check whether it is true or false, if true should be reaplaced with 'X'
         Goals["Goal-Done"] = " ";
-        Goals["Goal-Member"] = "Simple";
+        // This is for the type of quest to make other functions easy to read.
+        Goals["Goal-Quest"] = "Simple";
     }
 }
