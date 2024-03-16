@@ -15,6 +15,27 @@ class Goal
 
 
     }
+    public int ShowPoints(int Points,Dictionary<int, Dictionary<string, string>> Goals )
+    {
+        try
+        {
+            for (int i = 0; i < Goals.Count(); i++)
+        {
+            if(Goals[i]["Goal-Done"] == "X")
+            {
+                Points+= Convert.ToInt32(Goals[i]["Goal-Point"]);
+                if(Goals[i].ContainsKey("Goal-Bonus"))
+                {
+                    Points += Convert.ToInt32(Goals[i]["Goal-Bonus"]) * Convert.ToInt32(Goals[i]["Goal-Bonus-Points"]);
+                }
+            }
+        }
+        }
+        catch (System.Exception)
+        {
+        }
+        return Points;
+    }
     public void ShowPoints(int Points)
     {
         Console.WriteLine($"You have {Points} points.");

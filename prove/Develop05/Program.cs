@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 class Program
 {
     static void Main(string[] args)
@@ -8,10 +9,16 @@ class Program
         int Count = 0;
         int Points = 0;
         bool MainLoop = true;
+        bool fileOnce = false;
         while (MainLoop)
         {
             Dictionary<string, string> TempGoals = new Dictionary<string, string>();
             Goal goal = new Goal(Points, TempGoals);
+            if(fileOnce)
+            {
+            Points = goal.ShowPoints(Points, Goals);
+            fileOnce = false;
+            }
             goal.ShowPoints(Points);
             int MenuChoice = goal.ShowMenu();
             switch (MenuChoice)
@@ -60,9 +67,10 @@ class Program
                     break;
                 case 4:
                     (Goals, Count) = goal.LoadGoals();
+                    fileOnce = true;
                     break;
                 case 5:
-                    Points+= goal.RecordEvent(Goals,Points);
+                    Points += goal.RecordEvent(Goals, Points);
                     break;
                 case 6:
                     MainLoop = false;

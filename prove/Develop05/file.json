@@ -3,7 +3,7 @@
     "Goal-Type": "Simple",
     "Goal-Desc": "SImple goals",
     "Goal-Point": "50",
-    "Goal-Done": " ",
+    "Goal-Done": "X",
     "Goal-Quest": "Simple"
   },
   "1": {
@@ -19,7 +19,7 @@
     "Goal-Point": "150",
     "Goal-Bonus": "3",
     "Goal-Bonus-Points": "500",
-    "Goal-Done": " ",
+    "Goal-Done": "X",
     "Goal-Quest": "Checklist"
   },
   "3": {
