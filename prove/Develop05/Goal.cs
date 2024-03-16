@@ -96,7 +96,7 @@ class Goal
         return (localDict, count);
     }
 
-    public void RecordEvent(Dictionary<int, Dictionary<string, string>> Goals, int Points)
+    public int RecordEvent(Dictionary<int, Dictionary<string, string>> Goals, int Points)
     {
         int counter = 0;
         Console.WriteLine("The goals are: ");
@@ -112,6 +112,7 @@ class Goal
         {
             int tempPoints = Convert.ToInt32(Goals[tempChoice]["Goal-Point"]);
             Points += tempPoints;
+            Goals[tempChoice]["Goal-Done"] = "X";
             if(Goals[tempChoice].ContainsKey("Goal-Bonus"))
             {
                 int tempBonus = Convert.ToInt32(Goals[tempChoice]["Goal-Bonus"]);
@@ -119,12 +120,12 @@ class Goal
                 int BonusPoints = tempBonus * tempBonusTimes;
                 Points+=BonusPoints;
             }
-
         }
         else
         {
             Console.WriteLine("Incorrect option selected.");
         }
+        return Points;
 
     }
     public virtual void GoalEntry(Dictionary<string, string> Goals)
