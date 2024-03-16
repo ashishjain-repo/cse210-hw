@@ -62,7 +62,7 @@ class Program
                     (Goals, Count) = goal.LoadGoals();
                     break;
                 case 5:
-                    goal.RecordEvent(Goals);
+                    goal.RecordEvent(Goals,Points);
                     break;
                 case 6:
                     MainLoop = false;

@@ -2,6 +2,7 @@ using System.Dynamic;
 using System.Collections.Generic;
 using System.Text.Json;
 using System.IO;
+using System.Drawing;
 
 class Goal
 {
@@ -95,7 +96,7 @@ class Goal
         return (localDict, count);
     }
 
-    public void RecordEvent(Dictionary<int, Dictionary<string, string>> Goals)
+    public void RecordEvent(Dictionary<int, Dictionary<string, string>> Goals, int Points)
     {
         int counter = 0;
         Console.WriteLine("The goals are: ");
@@ -104,6 +105,27 @@ class Goal
             counter++;
             Console.WriteLine($"{counter}. {Goals[i]["Goal-Type"]}");
         }
+        Console.Write("Which Goal did you accomplish: ");
+        int choice = Convert.ToInt32(Console.ReadLine());
+        int tempChoice = choice - 1;
+        if(Goals.ContainsKey(tempChoice))
+        {
+            int tempPoints = Convert.ToInt32(Goals[tempChoice]["Goal-Point"]);
+            Points += tempPoints;
+            if(Goals[tempChoice].ContainsKey("Goal-Bonus"))
+            {
+                int tempBonus = Convert.ToInt32(Goals[tempChoice]["Goal-Bonus"]);
+                int tempBonusTimes = Convert.ToInt32(Goals[tempChoice]["Goal-Bonus-Points"]);
+                int BonusPoints = tempBonus * tempBonusTimes;
+                Points+=BonusPoints;
+            }
+
+        }
+        else
+        {
+            Console.WriteLine("Incorrect option selected.");
+        }
+
     }
     public virtual void GoalEntry(Dictionary<string, string> Goals)
     {
