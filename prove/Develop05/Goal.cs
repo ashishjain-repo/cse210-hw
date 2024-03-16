@@ -108,24 +108,29 @@ class Goal
         Console.Write("Which Goal did you accomplish: ");
         int choice = Convert.ToInt32(Console.ReadLine());
         int tempChoice = choice - 1;
+        int innerPoints = 0;
         if(Goals.ContainsKey(tempChoice))
         {
             int tempPoints = Convert.ToInt32(Goals[tempChoice]["Goal-Point"]);
-            Points += tempPoints;
+            innerPoints+=tempPoints;
             Goals[tempChoice]["Goal-Done"] = "X";
             if(Goals[tempChoice].ContainsKey("Goal-Bonus"))
             {
                 int tempBonus = Convert.ToInt32(Goals[tempChoice]["Goal-Bonus"]);
                 int tempBonusTimes = Convert.ToInt32(Goals[tempChoice]["Goal-Bonus-Points"]);
                 int BonusPoints = tempBonus * tempBonusTimes;
-                Points+=BonusPoints;
+                innerPoints+=BonusPoints;
             }
+    Console.WriteLine($"Congratulations! You have earned {innerPoints} points!");
         }
         else
         {
             Console.WriteLine("Incorrect option selected.");
         }
-        return Points;
+        int showPoints = Points + innerPoints;
+        Console.WriteLine($"You now have {showPoints} points.");
+        
+        return innerPoints;
 
     }
     public virtual void GoalEntry(Dictionary<string, string> Goals)
