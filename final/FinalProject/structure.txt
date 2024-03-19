@@ -1,0 +1,5 @@
+Local variables: thisIsVariable
+Member variables: _thisIsVariable
+Method names: ThisIsFunction()
+Parameter variable: ThisIsVariable
+Main Program Variables: ThisIsVariable

@@ -4,6 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello FinalProject World!");
+        Passenger User = new Passenger("Ashish","Jain",24,"aj9013313373@gmail.com");
+        User.WhereWeGo();
     }
 }
