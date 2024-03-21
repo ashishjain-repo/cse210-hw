@@ -7,7 +7,7 @@ class Airport : Passenger
         CountryFrom = countryFrom;
         CountryTo = countryTo;
     }
-    public void ChooseAirport(string Country)
+    public void ChooseAirport(string CountryFrom, string CountryTo)
     {
         
     }

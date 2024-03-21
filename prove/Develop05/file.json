@@ -1,0 +1,26 @@
+{
+  "0": {
+    "Goal-Type": "Simple",
+    "Goal-Desc": "Simple Goal",
+    "Goal-Point": "50",
+    "Goal-Done": "X",
+    "Goal-Quest": "Simple"
+  },
+  "1": {
+    "Goal-Type": "Eternal",
+    "Goal-Desc": "Eternal Goal",
+    "Goal-Point": "100",
+    "Goal-Done": "X",
+    "Goal-Quest": "Eternal"
+  },
+  "2": {
+    "Goal-Type": "Checklist",
+    "Goal-Desc": "Checklist Goal",
+    "Goal-Point": "50",
+    "Goal-Bonus": "3",
+    "Goal-Bonus-Points": "500",
+    "Goal-Times-Done": "3",
+    "Goal-Done": "X",
+    "Goal-Quest": "Checklist"
+  }
+}
