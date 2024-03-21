@@ -21,9 +21,12 @@ class Program
 
         // Part - 1
         Passenger User = new(FirstName, LastName, Age, Email);
-        string Country = User.WhereWeGo(JsonData);
+        User.Greeting();
+        string CountryFrom; string CountryTo;
+        (CountryFrom, CountryTo) = User.WhereWeGo(JsonData);
 
         // Part - 2
-        Airport UserAirport = new(FirstName, LastName, Age, Email, Country)
+        Console.WriteLine($"From: {CountryFrom} - To: {CountryTo}");
+        Airport UserAirport = new(FirstName, LastName, Age, Email, CountryFrom, CountryTo);
     }
 }

@@ -9,62 +9,79 @@ using System.Security.Cryptography;
 
 class Passenger
 {
-    protected string _passengerFirstName { get; set; }
-    protected string _passengerLastName { get; set; }
-    protected int _passengerAge { get; set; }
-    protected string _passengerEmail { get; set; }
+    public string PassengerFirstName { get; set; }
+    public string PassengerLastName { get; set; }
+    public int PassengerAge { get; set; }
+    public string PassengerEmail { get; set; }
     public Passenger(string FirstName, string LastName, int Age, string Email)
     {
-        FirstName = _passengerFirstName;
-        LastName = _passengerLastName;
-        Age = _passengerAge;
-        Email = _passengerEmail;
+        FirstName = PassengerFirstName;
+        LastName = PassengerLastName;
+        Age = PassengerAge;
+        Email = PassengerEmail;
     }
 
-    public string WhereWeGo(Dictionary<string, Dictionary<string, string>> data)
+public void Greeting()
+{
+    Console.WriteLine($"Hello {PassengerLastName}, {PassengerFirstName}");
+    Console.WriteLine("Welcome to BeSharp Flight Booking: ");
+}
+public string LocalIterator(IEnumerable<string> keys, int choice)
+{
+    string country = null;
+    switch (choice)
+            {
+                case 1:
+                    country = keys.ElementAtOrDefault(0);
+                    break;
+                case 2:
+                    country = keys.ElementAtOrDefault(1);
+                    
+                    break;
+                case 3:
+                    country = keys.ElementAtOrDefault(2);
+                    
+                    break;
+                case 4:
+                    country = keys.ElementAtOrDefault(3);
+                    
+                    break;
+                case 5:
+                    country = keys.ElementAtOrDefault(4);
+                    break;
+                default:
+                    Console.WriteLine("Please choose the correct option :)");
+                    country = null;
+                    break;
+            }
+    return country;
+}
+    public (string,string) WhereWeGo(Dictionary<string, Dictionary<string, string>> data)
     {
         
         IEnumerable<string> keys = data.Keys;
-        bool mainBool = true;
-        string country = null;
-        while (mainBool)
-        {
-            int count = 1;
-            Console.WriteLine("Where do you want to visit from the following:- ");
+        string countryFrom = null;
+        string countryTo = null;
+        int count = 1;
+            Console.WriteLine("THese are the places we fly:- ");
             foreach (string key in keys)
             {
                 Console.WriteLine($"{count}: {key}");
                 count++;
             }
-            Console.Write("Please Choose one: ");
-            int choice = Convert.ToInt32(Console.ReadLine());
-            switch (choice)
+            bool choice = true;
+            int flyFrom = 0;
+            int flyTo = 0;
+            while(choice)
             {
-                case 1:
-                    country = keys.ElementAtOrDefault(0);
-                    mainBool = false;
-                    break;
-                case 2:
-                    country = keys.ElementAtOrDefault(1);
-                    mainBool = false;
-                    break;
-                case 3:
-                    country = keys.ElementAtOrDefault(2);
-                    mainBool = false;
-                    break;
-                case 4:
-                    country = keys.ElementAtOrDefault(3);
-                    mainBool = false;
-                    break;
-                case 5:
-                    country = keys.ElementAtOrDefault(4);
-                    mainBool = false;
-                    break;
-                default:
-                    Console.WriteLine("Please choose the correct option :)");
-                    break;
+            Console.Write("Please Choose from where you want to fly: ");
+            flyFrom = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Please choose to where you want to fly:");
+            flyTo = Convert.ToInt32(Console.ReadLine());
+            choice = (flyFrom == flyTo) ? true : false;
             }
-        }
-        return country;
+            countryFrom = LocalIterator(keys, flyFrom);
+            countryTo = LocalIterator(keys,flyTo);
+        return (countryFrom, countryTo);
     }
 }
