@@ -28,5 +28,7 @@ class Program
         // Part - 2
         Console.WriteLine($"From: {CountryFrom} - To: {CountryTo}");
         Airport UserAirport = new(FirstName, LastName, Age, Email, CountryFrom, CountryTo);
+        string AirportFrom; string AirportTo;
+        (AirportFrom, AirportTo) = UserAirport.ChooseAirport(CountryFrom, CountryTo, JsonData);
     }
 }

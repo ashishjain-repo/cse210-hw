@@ -87,3 +87,10 @@ _____________________________________________________
 | + get_flights(): List[Flight]                       |
 |_____________________________________________________|
 
+Passenger: This class is going to be the parent class and all the sub-classes information will be dependent on this program, and some function need parent functions to receive the information for their program to be initiated.
+Flight: This class wil determine about the choices based on the user and depended on the parent class.
+Booking: This class will receive information from both previous classes and return the information that is needed for the next functions. 
+Ticket: This program will help to determine that whatever the information is provided by user is correct and then proceed to next steps or classes.
+Seat-Airport: These classes will determine the choices based on user and at the end will provide a receipt for the user.
+
+This program will be using JSON for data and based on that data, rest of the functions will be performed.
