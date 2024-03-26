@@ -15,19 +15,47 @@ class Airport : Passenger
         IEnumerable<string> aTo = data[CountryTo].Values;
         var fromKeyVal = cFrom.Zip(aFrom, (key, value) => new { Name = key, Code = value });
         var toKeyVal = cTo.Zip(aTo, (key, value) => new { Name = key, Code = value });
-        foreach (var pair in fromKeyVal)
+        string fromChoice = null;
+        string toChoice = null;
+        bool fromBool = true;
+        bool toBool = true;
+        while (fromBool)
         {
-            Console.WriteLine($"Airport: {pair.Name} => Airport Code: {pair.Code}");
+            foreach (var pair in fromKeyVal)
+            {
+                Console.WriteLine($"Airport: {pair.Name} => Airport Code: {pair.Code}");
+            }
+            Console.WriteLine("Please enter the departure airport code: ");
+            fromChoice = Console.ReadLine();
+            if (!fromKeyVal.Any( pair => pair.Code == fromChoice))
+            {
+                fromBool = true;
+                Console.WriteLine("Please choose only given options.");
+            }
+            else
+            {
+                fromBool = false;
+            }
         }
-        Console.WriteLine("Please enter the departure airport code: ");
-        string fromChoice = Console.ReadLine();
 
-        foreach (var pair in toKeyVal)
+        while (toBool)
+        {
+            foreach (var pair in toKeyVal)
         {
             Console.WriteLine($"Airport: {pair.Name} => Airport Code: {pair.Code}");
         }
-        Console.WriteLine("Please enter the arrival airport code: ");
-        string toChoice = Console.ReadLine();
+            Console.WriteLine("Please enter the arrival airport code: ");
+            toChoice = Console.ReadLine();
+            if (!toKeyVal.Any( pair => pair.Code == toChoice))
+            {
+                toBool = true;
+                Console.WriteLine("Please choose only given options.");
+            }
+            else
+            {
+                toBool = false;
+            }
+        }
 
         return (fromChoice, toChoice);
     }

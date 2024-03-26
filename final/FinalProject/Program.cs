@@ -11,8 +11,11 @@ class Program
     static void Main(string[] args)
     {
         string JsonFilePath = File.ReadAllText("serve.json");
+        string AirlineJson = File.ReadAllText("airline.json");
         Dictionary<string, Dictionary<string, string>> JsonData = JsonSerializer.Deserialize<Dictionary<string, Dictionary<string, string>>>(JsonFilePath);
+        Dictionary<string, Dictionary<string, string>> AirlineData = JsonSerializer.Deserialize<Dictionary<string, Dictionary<string, string>>>(AirlineJson);
 
+        // Now you can access the deserialized flight data
         string FirstName = "Ashish";
         string LastName = "Jain";
         int Age = 24;
@@ -30,5 +33,9 @@ class Program
         Airport UserAirport = new(FirstName, LastName, Age, Email, CountryFrom, CountryTo);
         string AirportFrom; string AirportTo;
         (AirportFrom, AirportTo) = UserAirport.ChooseAirport(CountryFrom, CountryTo, JsonData);
+
+        // Part - 3
+        Airline UserAirline = new(FirstName, LastName, Age, Email, AirportFrom, AirportTo);
+        UserAirline.ShowAirports(AirportFrom, AirportTo);
     }
 }

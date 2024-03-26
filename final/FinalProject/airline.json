@@ -1,0 +1,112 @@
+{
+  "India": {
+    "United States of America": {
+      "FlightDuration": "15 hours",
+      "DepartureTime": "08:00",
+      "ArrivalTime": "23:00"
+    },
+    "Germany": {
+      "FlightDuration": "9 hours",
+      "DepartureTime": "10:30",
+      "ArrivalTime": "18:30"
+    },
+    "United Kingdom": {
+      "FlightDuration": "10 hours",
+      "DepartureTime": "09:45",
+      "ArrivalTime": "20:45"
+    },
+    "Japan": {
+      "FlightDuration": "7 hours",
+      "DepartureTime": "11:15",
+      "ArrivalTime": "18:15"
+    }
+  },
+  "United States of America": {
+    "India": {
+      "FlightDuration": "15 hours",
+      "DepartureTime": "10:00",
+      "ArrivalTime": "01:00"
+    },
+    "Germany": {
+      "FlightDuration": "10 hours",
+      "DepartureTime": "09:30",
+      "ArrivalTime": "20:30"
+    },
+    "United Kingdom": {
+      "FlightDuration": "8 hours",
+      "DepartureTime": "08:45",
+      "ArrivalTime": "17:45"
+    },
+    "Japan": {
+      "FlightDuration": "12 hours",
+      "DepartureTime": "07:15",
+      "ArrivalTime": "21:15"
+    }
+  },
+  "Germany": {
+    "India": {
+      "FlightDuration": "9 hours",
+      "DepartureTime": "12:00",
+      "ArrivalTime": "21:00"
+    },
+    "United States of America": {
+      "FlightDuration": "10 hours",
+      "DepartureTime": "13:30",
+      "ArrivalTime": "23:30"
+    },
+    "United Kingdom": {
+      "FlightDuration": "2 hours",
+      "DepartureTime": "10:45",
+      "ArrivalTime": "12:45"
+    },
+    "Japan": {
+      "FlightDuration": "12 hours",
+      "DepartureTime": "08:15",
+      "ArrivalTime": "20:15"
+    }
+  },
+  "United Kingdom": {
+    "India": {
+      "FlightDuration": "10 hours",
+      "DepartureTime": "11:00",
+      "ArrivalTime": "21:00"
+    },
+    "United States of America": {
+      "FlightDuration": "8 hours",
+      "DepartureTime": "10:30",
+      "ArrivalTime": "20:30"
+    },
+    "Germany": {
+      "FlightDuration": "2 hours",
+      "DepartureTime": "13:45",
+      "ArrivalTime": "15:45"
+    },
+    "Japan": {
+      "FlightDuration": "11 hours",
+      "DepartureTime": "09:15",
+      "ArrivalTime": "20:15"
+    }
+  },
+  "Japan": {
+    "India": {
+      "FlightDuration": "7 hours",
+      "DepartureTime": "14:00",
+      "ArrivalTime": "21:00"
+    },
+    "United States of America": {
+      "FlightDuration": "12 hours",
+      "DepartureTime": "11:30",
+      "ArrivalTime": "23:30"
+    },
+    "Germany": {
+      "FlightDuration": "12 hours",
+      "DepartureTime": "12:15",
+      "ArrivalTime": "00:15"
+    },
+    "United Kingdom": {
+      "FlightDuration": "11 hours",
+      "DepartureTime": "10:00",
+      "ArrivalTime": "21:00"
+    }
+  }
+}
