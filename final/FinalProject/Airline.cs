@@ -1,16 +1,21 @@
 class Airline : Passenger
 {
-    public string  airportFrom {get; set;}
-    public string airportTo {get; set;}
+    public string  countryFrom {get; set;}
+    public string countryTo {get; set;}
 
-    public Airline(string FirstName, string LastName, int Age, string Email, string AirportFrom, string AirportTo): base(FirstName, LastName, Age, Email)
+    public Airline(string FirstName, string LastName, int Age, string Email, string CountryFrom, string CountryTo): base(FirstName, LastName, Age, Email)
     {
-        AirportFrom = airportFrom;
-        AirportTo = airportTo;
+        CountryFrom = countryFrom;
+        CountryTo = countryTo;
     }
-    public void ShowAirports(string AirportFrom, string AirportTo)
+    public void FlightDetails(string CountryFrom, string CountryTo, Dictionary<string, Dictionary<string, Dictionary<string, string>>> FlightDetails)
     {
-        Console.WriteLine($"You are flying from {AirportFrom} to {AirportTo}");
+        Console.WriteLine($"You are flying from {CountryFrom} to {CountryTo}");
+        foreach (var VARIABLE in FlightDetails[CountryFrom][CountryTo])
+        {
+            Console.WriteLine(VARIABLE);
+        }
+        
     }
 
 }
