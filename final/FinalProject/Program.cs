@@ -36,6 +36,8 @@ class Program
 
         // Part - 3
         Airline UserAirline = new(FirstName, LastName, Age, Email, AirportFrom, AirportTo);
-        UserAirline.FlightDetails(CountryFrom, CountryTo, AirlineData);
+        string Duration; string Departure; string Arrival;
+        (Duration, Departure, Arrival) = UserAirline.FlightDetails(CountryFrom, CountryTo, AirlineData);
+        Console.WriteLine($"Duration: {Duration}\nDeparture: {Departure}\nArrival: {Arrival}");
     }
 }

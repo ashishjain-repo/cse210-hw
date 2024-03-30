@@ -8,14 +8,14 @@ class Airline : Passenger
         CountryFrom = countryFrom;
         CountryTo = countryTo;
     }
-    public void FlightDetails(string CountryFrom, string CountryTo, Dictionary<string, Dictionary<string, Dictionary<string, string>>> FlightDetails)
+    public (string, string, string) FlightDetails(string CountryFrom, string CountryTo, Dictionary<string, Dictionary<string, Dictionary<string, string>>> FlightDetails)
     {
         Console.WriteLine($"You are flying from {CountryFrom} to {CountryTo}");
-        foreach (var VARIABLE in FlightDetails[CountryFrom][CountryTo])
-        {
-            Console.WriteLine(VARIABLE);
-        }
-        
+        string Duration = FlightDetails[CountryFrom][CountryTo]["FlightDuration"];
+        string Departure = FlightDetails[CountryFrom][CountryTo]["DepartureTime"];
+        string Arrival = FlightDetails[CountryFrom][CountryTo]["ArrivalTime"];
+
+    return (Duration, Departure, Arrival);
     }
 
 }
