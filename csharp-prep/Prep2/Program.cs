@@ -3,7 +3,7 @@ using System;
 public class assignment_weekone_two
 {
     static void Main(string[] args)
-    {   
+    {
         Console.Write("Please enter the grade percentage for letter grade: ");
         string num = Console.ReadLine();
         float percentage = float.Parse(num);
@@ -38,7 +38,7 @@ public class assignment_weekone_two
         {
             Console.WriteLine("Your Letter Grade is C+");
         }
-        else if (percentage >= 73  && percentage <= 76)
+        else if (percentage >= 73 && percentage <= 76)
         {
             Console.WriteLine("Your Letter Grade is C");
         }

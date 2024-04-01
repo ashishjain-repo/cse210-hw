@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+
 class Program
 {
     static void Main(string[] args)
@@ -14,11 +15,12 @@ class Program
         {
             Dictionary<string, string> TempGoals = new Dictionary<string, string>();
             Goal goal = new Goal(Points, TempGoals);
-            if(fileOnce)
+            if (fileOnce)
             {
-            Points = goal.ShowPoints(Points, Goals);
-            fileOnce = false;
+                Points = goal.ShowPoints(Points, Goals);
+                fileOnce = false;
             }
+
             goal.ShowPoints(Points);
             int MenuChoice = goal.ShowMenu();
             switch (MenuChoice)
@@ -58,6 +60,7 @@ class Program
                             GoalTypeBool = true;
                         }
                     }
+
                     break;
                 case 2:
                     goal.ListGoals(Goals, Count);
@@ -78,9 +81,6 @@ class Program
                 default:
                     break;
             }
-
-
         }
-
     }
 }

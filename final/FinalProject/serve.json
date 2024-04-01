@@ -1,32 +1,27 @@
 {
-    "India": 
-    {
-        "Indira Gandhi International Airport": "DEL",
-        "Chhatrapati Shivaji International Airport": "BOM",
-        "Chennai International Airport": "MAA"
-    },
-    "United States of America": 
-    {
-        "Hartsfield-Jackson Atlanta International Airport": "ATL",
-        "Los Angeles International Airport": "LAX",
-        "O'Hare International Airport": "ORD"
-    },
-    "Germany": 
-    {
-        "Frankfurt am Main Airport": "FRA",
-        "Airport Berlin Brandenburg": "BER",
-        "Munich Airport": "MUC"
-    },
-    "United Kingdom": 
-    {
-        "London Heathrow Airport": "LHR",
-        "Manchester Airport": "MAN",
-        "Birmingham International Airport": "BHX"
-    },
-    "Japan": 
-    {
-        "Narita International Airport": "NRT",
-        "Kansai International Airport": "KIX",
-        "Fukuoka Airport": "FUK"
-    }
+  "India": {
+    "Indira Gandhi International Airport": "DEL",
+    "Chhatrapati Shivaji International Airport": "BOM",
+    "Chennai International Airport": "MAA"
+  },
+  "United States of America": {
+    "Hartsfield-Jackson Atlanta International Airport": "ATL",
+    "Los Angeles International Airport": "LAX",
+    "O'Hare International Airport": "ORD"
+  },
+  "Germany": {
+    "Frankfurt am Main Airport": "FRA",
+    "Airport Berlin Brandenburg": "BER",
+    "Munich Airport": "MUC"
+  },
+  "United Kingdom": {
+    "London Heathrow Airport": "LHR",
+    "Manchester Airport": "MAN",
+    "Birmingham International Airport": "BHX"
+  },
+  "Japan": {
+    "Narita International Airport": "NRT",
+    "Kansai International Airport": "KIX",
+    "Fukuoka Airport": "FUK"
+  }
 }

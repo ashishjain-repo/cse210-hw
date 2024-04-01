@@ -2,12 +2,16 @@ class Airport : Passenger
 {
     public string countryFrom { get; set; }
     public string countryTo { get; set; }
-    public Airport(string FirstName, string LastName, int Age, string Email, string CountryFrom, string CountryTo) : base(FirstName, LastName, Age, Email)
+
+    public Airport(string FirstName, string LastName, int Age, string Email, string CountryFrom, string CountryTo) :
+        base(FirstName, LastName, Age, Email)
     {
         CountryFrom = countryFrom;
         CountryTo = countryTo;
     }
-    public (string, string) ChooseAirport(string CountryFrom, string CountryTo, Dictionary<string, Dictionary<string, string>> data)
+
+    public (string, string) ChooseAirport(string CountryFrom, string CountryTo,
+        Dictionary<string, Dictionary<string, string>> data)
     {
         IEnumerable<string> cFrom = data[CountryFrom].Keys;
         IEnumerable<string> cTo = data[CountryTo].Keys;
@@ -25,9 +29,10 @@ class Airport : Passenger
             {
                 Console.WriteLine($"Airport: {pair.Name} => Airport Code: {pair.Code}");
             }
+
             Console.WriteLine("Please enter the departure airport code: ");
             fromChoice = Console.ReadLine();
-            if (!fromKeyVal.Any( pair => pair.Code == fromChoice))
+            if (!fromKeyVal.Any(pair => pair.Code == fromChoice))
             {
                 fromBool = true;
                 Console.WriteLine("Please choose only given options.");
@@ -41,12 +46,13 @@ class Airport : Passenger
         while (toBool)
         {
             foreach (var pair in toKeyVal)
-        {
-            Console.WriteLine($"Airport: {pair.Name} => Airport Code: {pair.Code}");
-        }
+            {
+                Console.WriteLine($"Airport: {pair.Name} => Airport Code: {pair.Code}");
+            }
+
             Console.WriteLine("Please enter the arrival airport code: ");
             toChoice = Console.ReadLine();
-            if (!toKeyVal.Any( pair => pair.Code == toChoice))
+            if (!toKeyVal.Any(pair => pair.Code == toChoice))
             {
                 toBool = true;
                 Console.WriteLine("Please choose only given options.");

@@ -11,40 +11,39 @@ public class Entry
     public string _date = DateTime.Now.ToString("d/M/yyyy");
 
     public void FileCreateAndSave(string FileName, List<string> PromptResponse)
-    {   
+    {
         string DirectoryPath = Environment.CurrentDirectory;
-        string FullPath = DirectoryPath+ '\\' + FileName;
+        string FullPath = DirectoryPath + '\\' + FileName;
 
         StreamWriter writer = new StreamWriter(FullPath);
-        foreach(string Prompt in PromptResponse)
+        foreach (string Prompt in PromptResponse)
         {
             writer.WriteLine(Prompt);
         }
+
         writer.Close();
         Console.WriteLine("Your File has been succesfully created");
-
     }
+
     public void SavedFileLoader(string FileName)
     {
         try
         {
+            string DirectoryPath = Environment.CurrentDirectory;
+            string FullPath = DirectoryPath + '\\' + FileName;
+            StreamReader reader = new StreamReader(FullPath);
+            string PromptData = reader.ReadLine();
+            while (PromptData != null)
+            {
+                Console.WriteLine(PromptData);
+                PromptData = reader.ReadLine();
+            }
 
-        
-        string DirectoryPath = Environment.CurrentDirectory;
-        string FullPath = DirectoryPath+ '\\' + FileName;
-        StreamReader reader = new StreamReader(FullPath);
-        string PromptData = reader.ReadLine();
-        while (PromptData != null)
-        {
-            Console.WriteLine(PromptData);
-            PromptData = reader.ReadLine();
-        }
-        reader.Close();
+            reader.Close();
         }
         catch
         {
             Console.WriteLine($"File Error: File named '{FileName}' does not exist in this directory.\n");
         }
     }
-
 }

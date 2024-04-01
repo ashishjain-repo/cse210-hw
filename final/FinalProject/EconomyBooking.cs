@@ -3,6 +3,7 @@
     protected string Duration;
     protected string Departure;
     protected string Arrival;
+
     public EconomyBooking(string duration, string departure, string arrival) : base(duration, departure, arrival)
     {
         Duration = duration;
@@ -53,6 +54,5 @@
 
     public override void ConfirmReservation()
     {
-        
     }
 }

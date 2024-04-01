@@ -1,4 +1,5 @@
 using System;
+
 public class prep3
 {
     public int createRandom()
@@ -7,6 +8,7 @@ public class prep3
         int magicNum = rnd.Next(101);
         return magicNum;
     }
+
     static void Main(string[] args)
     {
         prep3 prep = new prep3();
@@ -14,13 +16,13 @@ public class prep3
         Console.WriteLine(magicNum);
         bool loopVal = true;
         int counter = 0;
-        while(loopVal)
+        while (loopVal)
         {
             Console.Write("What is your guess? ");
             string tempGuess = Console.ReadLine();
             int guessNum = int.Parse(tempGuess);
             counter++;
-            if(guessNum == magicNum)
+            if (guessNum == magicNum)
             {
                 Console.WriteLine("You Guessed It!");
                 Console.WriteLine($"It took you {counter} guesses to get the write answer!");
@@ -37,7 +39,7 @@ public class prep3
                     loopVal = false;
                 }
             }
-            else if(guessNum < magicNum)
+            else if (guessNum < magicNum)
             {
                 Console.WriteLine("Lower");
             }
@@ -46,6 +48,5 @@ public class prep3
                 Console.WriteLine("Higher");
             }
         }
-
     }
 }

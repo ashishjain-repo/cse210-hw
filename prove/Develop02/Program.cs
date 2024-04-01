@@ -16,6 +16,7 @@ while (WhileLoop)
     {
         Console.WriteLine(Prompt);
     }
+
     Console.WriteLine("What would you like to do?");
     int LocalResponse = Convert.ToInt32(Console.ReadLine());
     switch (LocalResponse)
@@ -32,6 +33,7 @@ while (WhileLoop)
             {
                 Console.WriteLine(Data + "\n");
             }
+
             break;
         case 3:
             Console.WriteLine("Please enter the name of the file: ");
@@ -41,7 +43,7 @@ while (WhileLoop)
         case 4:
             Console.WriteLine("What is the filename");
             string FileName = Console.ReadLine();
-            entry.FileCreateAndSave(FileName,PromptsResponse);
+            entry.FileCreateAndSave(FileName, PromptsResponse);
             break;
         case 5:
             WhileLoop = false;

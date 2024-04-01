@@ -1,4 +1,5 @@
 using System;
+
 class Program
 {
     static void Main(string[] args)
@@ -7,7 +8,8 @@ class Program
         string ContentReference = "";
         string ContentVerse = "";
         Reference Ref1 = new Reference(ContentId, ContentReference, ContentVerse);
-        (ContentId, ContentReference, ContentVerse) = Ref1.RandomVerse(Ref1.ScriptId, Ref1.ScriptReference, Ref1.ScriptVerse);
+        (ContentId, ContentReference, ContentVerse) =
+            Ref1.RandomVerse(Ref1.ScriptId, Ref1.ScriptReference, Ref1.ScriptVerse);
 
         /* Scripture Scr1 = new Scripture();
         Scr1.ShowScripture(reference); */
@@ -17,11 +19,11 @@ class Program
 
         ScriptureSplits = Wor1.StringToList(ContentVerse);
 
-        List<int> ContentListIndex  = new List<int>();
-        List<int> DeletedListIndex  = new List<int>();
+        List<int> ContentListIndex = new List<int>();
+        List<int> DeletedListIndex = new List<int>();
 
-        List<int> ContentTemp  = new List<int>();
-        List<int> DeletedTemp  = new List<int>();
+        List<int> ContentTemp = new List<int>();
+        List<int> DeletedTemp = new List<int>();
 
         List<string> TempIteration = new List<string>();
 
@@ -40,20 +42,23 @@ class Program
                 DeletedListIndex.AddRange(DeletedTemp);
                 DeletedListIndex.Sort();
 
-                TempIteration = Wor1.IndexReplacer(ScriptureSplits,DeletedListIndex);
+                TempIteration = Wor1.IndexReplacer(ScriptureSplits, DeletedListIndex);
 
-                Src1.ShowScripture(ContentReference,TempIteration);
+                Src1.ShowScripture(ContentReference, TempIteration);
                 // Debugging
                 // Console.WriteLine($"\nContentList: {ContentListIndex.Count}\nDeletedList: {DeletedListIndex.Count}");
                 // Debugging
-                if(ContentListIndex.Count == DeletedListIndex.Count){WhileLoop = false;}
-                Console.WriteLine("\nPress Enter to continue or type 'quit' to finsih");
-                string Broker = Console.ReadLine();
-                if(Broker == "quit" || Broker == "QUIT")
+                if (ContentListIndex.Count == DeletedListIndex.Count)
                 {
                     WhileLoop = false;
                 }
 
+                Console.WriteLine("\nPress Enter to continue or type 'quit' to finsih");
+                string Broker = Console.ReadLine();
+                if (Broker == "quit" || Broker == "QUIT")
+                {
+                    WhileLoop = false;
+                }
             }
             catch (Exception e)
             {
@@ -62,12 +67,5 @@ class Program
                 // Console.WriteLine(e.Message);
             }
         }
-
-
-        
-        
-        
-    
     }
 }
-

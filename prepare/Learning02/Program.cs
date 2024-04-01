@@ -8,7 +8,7 @@ class Program
 
         Job job2 = new Job();
 
-        
+
         job1._company = "Microsoft";
         job1._jobTitle = "Software Engineer";
         job1._startYear = 2019;
@@ -29,5 +29,4 @@ class Program
 
         myResume.Display();
     }
-    
 }

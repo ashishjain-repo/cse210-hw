@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+
 class Program
 {
     static void Main(string[] args)
@@ -20,18 +21,19 @@ class Program
                 float listAverage = 0F;
                 int listLargest = numbers[0];
                 int listSmallest = numbers[0];
-                for(int i = 0; i < listSize; i++)
+                for (int i = 0; i < listSize; i++)
                 {
                     listSum += numbers[i];
-                    if(numbers[i] > listLargest)
+                    if (numbers[i] > listLargest)
                     {
                         listLargest = numbers[i];
                     }
-                    else if(numbers[i] < listSmallest)
+                    else if (numbers[i] < listSmallest)
                     {
                         listSmallest = numbers[i];
                     }
                 }
+
                 float tempListSum = listSum;
                 float tempListSize = listSize;
                 listAverage = tempListSum / tempListSize;
@@ -39,7 +41,6 @@ class Program
                 Console.WriteLine($"The average is: {listAverage}");
                 Console.WriteLine($"The Largest Number is: {listLargest}");
                 Console.WriteLine($"The Smallest Number is: {listSmallest}");
-
             }
             else
             {

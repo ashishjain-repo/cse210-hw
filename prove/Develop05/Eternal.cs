@@ -1,12 +1,12 @@
 class Eternal : Goal
 {
-    public Eternal (int Points, Dictionary<string,string> Goals) : base(Points, Goals)
+    public Eternal(int Points, Dictionary<string, string> Goals) : base(Points, Goals)
     {
         Points = _points;
         Goals = _goals;
     }
 
-    public override void GoalEntry(Dictionary<string,string> Goals)
+    public override void GoalEntry(Dictionary<string, string> Goals)
     {
         Console.WriteLine("What is the name of your goal? ");
         string GoalType = Console.ReadLine();

@@ -1,6 +1,7 @@
 using System;
 
 namespace employee_demo;
+
 class Program
 {
     static void Main(string[] args)
@@ -15,6 +16,5 @@ class Program
         sEmployee.SetName("Peter");
         sEmployee.SetIdNumber("456def");
         sEmployee.SetSalary(60000);
-        
     }
 }

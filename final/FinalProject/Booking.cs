@@ -13,7 +13,4 @@
 
     public abstract int SelectSeat();
     public abstract void ConfirmReservation();
-
-    
-    
 }

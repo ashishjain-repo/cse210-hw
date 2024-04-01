@@ -3,16 +3,16 @@ using System.Timers;
 
 class Activity
 {
-    protected string StartingMessage {get; set;}
-    protected string EndingMessage {get; set;}
-    protected string ActivityName {get; set;}
-    protected string Description {get; set;}
-    protected int Duration {get; set;}
-    
+    protected string StartingMessage { get; set; }
+    protected string EndingMessage { get; set; }
+    protected string ActivityName { get; set; }
+    protected string Description { get; set; }
+    protected int Duration { get; set; }
+
     public Activity()
     {
-
     }
+
     public Activity(string smessage, string emessage, string aname, string description, int duration)
     {
         StartingMessage = smessage;
@@ -21,76 +21,82 @@ class Activity
         Description = description;
         Duration = duration;
     }
+
     public void Spinner()
-    {   
-        string[] spinnerSymbol = {"+","|","/","-","\\","|","/","-","\\","|"};
+    {
+        string[] spinnerSymbol = { "+", "|", "/", "-", "\\", "|", "/", "-", "\\", "|" };
         Console.WriteLine("Get ready...");
-        foreach(string temp in spinnerSymbol)
+        foreach (string temp in spinnerSymbol)
         {
             Console.Write(temp);
             Thread.Sleep(250);
             Console.Write("\b \b");
         }
-
     }
-public void SpinnerTimed(int time)
-    {   
-        string[] spinnerSymbol = {"+","|","/","-","\\","|","/","-","\\","|"};
+
+    public void SpinnerTimed(int time)
+    {
+        string[] spinnerSymbol = { "+", "|", "/", "-", "\\", "|", "/", "-", "\\", "|" };
         Console.WriteLine("Get ready...");
-        foreach(string temp in spinnerSymbol)
+        foreach (string temp in spinnerSymbol)
         {
             Console.Write(temp);
             Thread.Sleep(time);
             Console.Write("\b \b");
         }
-
     }
+
     public void NumberIterator()
     {
-        string[] iteratorSymbol = {"3","2","1","0"};
-        foreach(string temp in iteratorSymbol)
+        string[] iteratorSymbol = { "3", "2", "1", "0" };
+        foreach (string temp in iteratorSymbol)
         {
             Console.Write(temp);
             Thread.Sleep(500);
             Console.Write("\b \b");
         }
+
         Console.WriteLine("\n");
     }
+
     public void NumberIteratorTimed(int time)
     {
-        string[] iteratorSymbol = {"3","2","1","0"};
+        string[] iteratorSymbol = { "3", "2", "1", "0" };
         time = time * 1000;
-        foreach(string temp in iteratorSymbol)
+        foreach (string temp in iteratorSymbol)
         {
             Console.Write(temp);
             Thread.Sleep(time);
             Console.Write("\b \b");
         }
+
         Console.WriteLine("\n");
     }
 
     public void CountDownTimer(int time, int times)
     {
-        string[] spinnerSymbol = {"+","|","/","-","\\","|","/","-","\\","|"};
-        for(int i = 0; i < times; i++)
+        string[] spinnerSymbol = { "+", "|", "/", "-", "\\", "|", "/", "-", "\\", "|" };
+        for (int i = 0; i < times; i++)
         {
-
-        foreach(string temp in spinnerSymbol)
-        {
-            Console.Write(temp);
-            Thread.Sleep(time);
-            Console.Write("\b \b");
-        }
+            foreach (string temp in spinnerSymbol)
+            {
+                Console.Write(temp);
+                Thread.Sleep(time);
+                Console.Write("\b \b");
+            }
         }
     }
 }
+
 class BreathingActivity : Activity
-{   
+{
     public List<string> Prompts = new List<string>();
-    public BreathingActivity(string StartingMessage, string EndingMessage, string ActivityName, string Description, int Duration) : base(StartingMessage, EndingMessage, ActivityName, Description, Duration)
+
+    public BreathingActivity(string StartingMessage, string EndingMessage, string ActivityName, string Description,
+        int Duration) : base(StartingMessage, EndingMessage, ActivityName, Description, Duration)
     {
-        
     }
+
     public int BreathingMessage()
     {
         Console.Clear();
@@ -100,29 +106,36 @@ class BreathingActivity : Activity
         Duration = activityDuration;
         return activityDuration;
     }
+
     public void BreathingTimer(int duration)
     {
-        if(duration%2 == 0)
+        if (duration % 2 == 0)
         {
-            for(int i = 0; i < (duration/4); i++)
+            for (int i = 0; i < (duration / 4); i++)
             {
-                Console.Write("Breathe In...."); NumberIterator();
-                Console.Write("Breathe Out...."); NumberIterator();
+                Console.Write("Breathe In....");
+                NumberIterator();
+                Console.Write("Breathe Out....");
+                NumberIterator();
                 Console.WriteLine("\n");
             }
         }
         else
         {
             duration++;
-            for(int i = 0; i < (duration/4); i++)
+            for (int i = 0; i < (duration / 4); i++)
             {
-                Console.Write("Breathe In...."); NumberIterator();
-                Console.Write("Breathe Out...."); NumberIterator();
+                Console.Write("Breathe In....");
+                NumberIterator();
+                Console.Write("Breathe Out....");
+                NumberIterator();
                 Console.WriteLine("\n");
             }
         }
+
         BreathingCompletion(duration);
     }
+
     public void BreathingCompletion(int duration)
     {
         Console.WriteLine("Well Done!!");
@@ -131,6 +144,7 @@ class BreathingActivity : Activity
         Spinner();
     }
 }
+
 class ReflectionActivity : Activity
 {
     public string[] Prompts =
@@ -140,6 +154,7 @@ class ReflectionActivity : Activity
         "Think of a time when you helped someone in need.",
         "Think of a time when you did something truly selfless."
     };
+
     public List<string> PromptsList = new List<string>
     {
         "Why was this experience meaningful to you?",
@@ -152,10 +167,12 @@ class ReflectionActivity : Activity
         "What did you learn about yourself through this experience?",
         "How can you keep this experience in mind in the future?"
     };
-    public ReflectionActivity(string StartingMessage, string EndingMessage, string ActivityName, string Description, int Duration) : base(StartingMessage, EndingMessage, ActivityName, Description, Duration)
+
+    public ReflectionActivity(string StartingMessage, string EndingMessage, string ActivityName, string Description,
+        int Duration) : base(StartingMessage, EndingMessage, ActivityName, Description, Duration)
     {
-        
     }
+
     public int ReflectionMessage()
     {
         Console.Clear();
@@ -165,28 +182,32 @@ class ReflectionActivity : Activity
         Duration = activityDuration;
         return activityDuration;
     }
+
     public void ReflectionPrompt()
     {
         Console.WriteLine("Consider the following prompt:\n");
         Random Rand = new Random();
-        int RandomNumber = Rand.Next(0,3);
+        int RandomNumber = Rand.Next(0, 3);
         Console.WriteLine($"--- {Prompts[RandomNumber]} ---\n");
     }
+
     public void ReflectionQuestions()
     {
         Console.WriteLine("When you have something in mind, press Enter to continue");
         Console.ReadLine();
         Console.WriteLine("Now ponder on each of the following questions as they related to this experience");
-        Console.Write("You may begin in: "); NumberIteratorTimed(1);
+        Console.Write("You may begin in: ");
+        NumberIteratorTimed(1);
     }
+
     public void ReflectionResponse()
     {
         List<int> tempIndex = new List<int>();
         Random Rand = new Random();
-        for(int i = 0; i < PromptsList.Count(); i++)
+        for (int i = 0; i < PromptsList.Count(); i++)
         {
-            int tempNum = Rand.Next(0,PromptsList.Count());
-            if(tempIndex.Contains(tempNum))
+            int tempNum = Rand.Next(0, PromptsList.Count());
+            if (tempIndex.Contains(tempNum))
             {
                 continue;
             }
@@ -194,45 +215,47 @@ class ReflectionActivity : Activity
             {
                 tempIndex.Add(tempNum);
             }
-
         }
-        for(int i = 0; i < 1; i++)
+
+        for (int i = 0; i < 1; i++)
         {
             Console.WriteLine($"> {PromptsList[tempIndex[0]]}");
-            CountDownTimer(1000,2);
+            CountDownTimer(1000, 2);
         }
     }
+
     public void ReflectionCompletion(int time)
     {
         Console.WriteLine("Well Done!!");
-            Spinner();
-            Console.WriteLine($"You have completed another {time} seconds of the {ActivityName}");
-            Spinner();
+        Spinner();
+        Console.WriteLine($"You have completed another {time} seconds of the {ActivityName}");
+        Spinner();
     }
+
     public void ReflectionTimed(int time)
-    {   
+    {
         // Console.WriteLine(time);
         bool inBool = true;
         int tempTime = 0;
-        while(inBool)
+        while (inBool)
         {
-            tempTime+=15;
-        if(tempTime <= time)
-        {
-            ReflectionResponse();
-        }
-        else
-        {
-            
-            ReflectionCompletion(time);
-            inBool= false;
-        }
+            tempTime += 15;
+            if (tempTime <= time)
+            {
+                ReflectionResponse();
+            }
+            else
+            {
+                ReflectionCompletion(time);
+                inBool = false;
+            }
         }
     }
 }
+
 class ListingActivity : Activity
 {
-    public string[] Prompts = 
+    public string[] Prompts =
     {
         "Who are people that you appreciate?",
         "What are personal strengths of yours?",
@@ -240,11 +263,14 @@ class ListingActivity : Activity
         "When have you felt the Holy Ghost this month?",
         "Who are some of your personal heroes?"
     };
+
     public List<string> userResponse = new List<string>();
-    public ListingActivity(string StartingMessage, string EndingMessage, string ActivityName, string Description, int Duration) : base(StartingMessage, EndingMessage, ActivityName, Description, Duration)
+
+    public ListingActivity(string StartingMessage, string EndingMessage, string ActivityName, string Description,
+        int Duration) : base(StartingMessage, EndingMessage, ActivityName, Description, Duration)
     {
-        
     }
+
     public int ListingMessage()
     {
         Console.Clear();
@@ -254,34 +280,37 @@ class ListingActivity : Activity
         Duration = activityDuration;
         return activityDuration;
     }
+
     public void ListingPrompt()
     {
         Random Rand = new Random();
         int promptLength = Prompts.Count();
-        int randomElement = Rand.Next(0,promptLength);
+        int randomElement = Rand.Next(0, promptLength);
         Console.WriteLine("List as many responses you can to the following prompt: ");
         Console.WriteLine($"--- {Prompts[randomElement]} ---");
         Console.Write("You may begin in: ");
         NumberIteratorTimed(1);
-
     }
+
     /* public void ReflectionQuestions(int time)
     {
-        
+
     } */
     public void ListingResponse(int time)
     {
         DateTime endTime = DateTime.Now.AddSeconds(time);
-        while(DateTime.Now < endTime)
+        while (DateTime.Now < endTime)
         {
             Console.Write("> ");
             string userInput = Console.ReadLine();
             userResponse.Add(userInput);
         }
+
         Console.WriteLine($"You listed {userResponse.Count()} items!");
         Console.WriteLine("Well Done !!");
         Spinner();
     }
+
     public void ListingCompletion(int time)
     {
         Console.WriteLine($"You have completed another {time} seconds of the Listing Activity");
