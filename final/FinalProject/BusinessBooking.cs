@@ -51,8 +51,5 @@
         int Choose = Numbers[Choice];
         return Choose;
     }
-
-    public override void ConfirmReservation()
-    {
-    }
+    
 }

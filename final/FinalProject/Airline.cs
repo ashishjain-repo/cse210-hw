@@ -6,8 +6,8 @@ class Airline : Passenger
     public Airline(string FirstName, string LastName, int Age, string Email, string CountryFrom, string CountryTo) :
         base(FirstName, LastName, Age, Email)
     {
-        CountryFrom = countryFrom;
-        CountryTo = countryTo;
+        countryFrom = CountryFrom;
+        countryTo = CountryTo;
     }
 
     public (string, string, string) FlightDetails(string CountryFrom, string CountryTo,

@@ -16,10 +16,10 @@ class Passenger
 
     public Passenger(string FirstName, string LastName, int Age, string Email)
     {
-        FirstName = PassengerFirstName;
-        LastName = PassengerLastName;
-        Age = PassengerAge;
-        Email = PassengerEmail;
+        PassengerFirstName = FirstName;
+        PassengerLastName = LastName;
+        PassengerAge = Age;
+        PassengerEmail = Email;
     }
 
     public void Greeting()

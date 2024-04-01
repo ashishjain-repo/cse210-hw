@@ -48,6 +48,7 @@ class Program
         // Part - 4,5,6
         bool Item = true;
         int Choice = 0;
+        int Seat = 0;
         while (Item)
         {
             Console.WriteLine("Enter 1 for Business Class and 0 for Economy Class");
@@ -61,16 +62,17 @@ class Program
         if (Choice == 0)
         {
             Booking UserBooking = new EconomyBooking(Duration, Departure, Arrival);
-            int Seat = UserBooking.SelectSeat();
-            Console.WriteLine(Seat);
+            Seat = UserBooking.SelectSeat();
         }
         else if (Choice == 1)
         {
             Booking UserBooking = new BusinessBooking(Duration, Departure, Arrival);
-            int Seat = UserBooking.SelectSeat();
-            Console.WriteLine(Seat);
+            Seat = UserBooking.SelectSeat();
         }
 
         // Part - 7   
+        Receipt UserReceipt = new(FirstName, LastName, Age, Email, CountryFrom, CountryTo, AirportFrom, AirportTo,
+            Duration, Departure, Arrival, Seat);
+        UserReceipt.ShowReceipt();
     }
 }
