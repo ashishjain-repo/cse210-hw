@@ -6,9 +6,10 @@
     private string airportTo { get; set; }
     private string duration { get; set; }
     private string departure { get; set; }
-    private string arrival;
-    private int seat;
-    public Receipt(string FirstName, string LastName, int Age, string Email, string CountryFrom, string CountryTo, string AirportFrom, string AirportTo, string Duration, string Departure, string Arrival, int Seat) :
+    private string arrival {get; set; }
+    private int seat { get; set; }
+    private string Amount { get;set; }
+    public Receipt(string FirstName, string LastName, int Age, string Email, string CountryFrom, string CountryTo, string AirportFrom, string AirportTo, string Duration, string Departure, string Arrival, int Seat, string amount) :
         base(FirstName, LastName, Age, Email)
     {
         countryFrom = CountryFrom;
@@ -19,6 +20,7 @@
         departure = Departure;
         arrival = Arrival;
         seat = Seat;
+        Amount = amount;
     }
 
     public void ShowReceipt()
@@ -32,6 +34,7 @@
         Console.WriteLine($"Your flight will arrive at {airportTo} at {arrival}");
         Console.WriteLine($"Your seat no: {seat}");
         Console.WriteLine($"Total Duration: {duration}");
+        Console.WriteLine($"Total payable amount: {Amount}");
         
     }
 }

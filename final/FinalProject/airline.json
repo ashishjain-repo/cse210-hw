@@ -3,110 +3,130 @@
     "United States of America": {
       "FlightDuration": "15 hours",
       "DepartureTime": "08:00",
-      "ArrivalTime": "23:00"
+      "ArrivalTime": "23:00",
+      "TotalCost": "55000 INR"
     },
     "Germany": {
       "FlightDuration": "9 hours",
       "DepartureTime": "10:30",
-      "ArrivalTime": "18:30"
+      "ArrivalTime": "18:30",
+      "TotalCost": "35000 INR"
     },
     "United Kingdom": {
       "FlightDuration": "10 hours",
       "DepartureTime": "09:45",
-      "ArrivalTime": "20:45"
+      "ArrivalTime": "20:45",
+      "TotalCost": "45000 INR"
     },
     "Japan": {
       "FlightDuration": "7 hours",
       "DepartureTime": "11:15",
-      "ArrivalTime": "18:15"
+      "ArrivalTime": "18:15",
+      "TotalCost": "60000 INR"
     }
   },
   "United States of America": {
     "India": {
       "FlightDuration": "15 hours",
       "DepartureTime": "10:00",
-      "ArrivalTime": "01:00"
+      "ArrivalTime": "01:00",
+      "TotalCost": "800 USD"
     },
     "Germany": {
       "FlightDuration": "10 hours",
       "DepartureTime": "09:30",
-      "ArrivalTime": "20:30"
+      "ArrivalTime": "20:30",
+      "TotalCost": "700 USD"
     },
     "United Kingdom": {
       "FlightDuration": "8 hours",
       "DepartureTime": "08:45",
-      "ArrivalTime": "17:45"
+      "ArrivalTime": "17:45",
+      "TotalCost": "600 USD"
     },
     "Japan": {
       "FlightDuration": "12 hours",
       "DepartureTime": "07:15",
-      "ArrivalTime": "21:15"
+      "ArrivalTime": "21:15",
+      "TotalCost": "900 USD"
     }
   },
   "Germany": {
     "India": {
       "FlightDuration": "9 hours",
       "DepartureTime": "12:00",
-      "ArrivalTime": "21:00"
+      "ArrivalTime": "21:00",
+      "TotalCost": "400 EUR"
     },
     "United States of America": {
       "FlightDuration": "10 hours",
       "DepartureTime": "13:30",
-      "ArrivalTime": "23:30"
+      "ArrivalTime": "23:30",
+      "TotalCost": "500 EUR"
     },
     "United Kingdom": {
       "FlightDuration": "2 hours",
       "DepartureTime": "10:45",
-      "ArrivalTime": "12:45"
+      "ArrivalTime": "12:45",
+      "TotalCost": "150 EUR"
     },
     "Japan": {
       "FlightDuration": "12 hours",
       "DepartureTime": "08:15",
-      "ArrivalTime": "20:15"
+      "ArrivalTime": "20:15",
+      "TotalCost": "700 EUR"
     }
   },
   "United Kingdom": {
     "India": {
       "FlightDuration": "10 hours",
       "DepartureTime": "11:00",
-      "ArrivalTime": "21:00"
+      "ArrivalTime": "21:00",
+      "TotalCost": "500 GBP"
     },
     "United States of America": {
       "FlightDuration": "8 hours",
       "DepartureTime": "10:30",
-      "ArrivalTime": "20:30"
+      "ArrivalTime": "20:30",
+      "TotalCost": "400 GBP"
     },
     "Germany": {
       "FlightDuration": "2 hours",
       "DepartureTime": "13:45",
-      "ArrivalTime": "15:45"
+      "ArrivalTime": "15:45",
+      "TotalCost": "200 GBP"
     },
     "Japan": {
       "FlightDuration": "11 hours",
       "DepartureTime": "09:15",
-      "ArrivalTime": "20:15"
+      "ArrivalTime": "20:15",
+      "TotalCost": "600 GBP"
     }
   },
   "Japan": {
     "India": {
       "FlightDuration": "7 hours",
       "DepartureTime": "14:00",
-      "ArrivalTime": "21:00"
+      "ArrivalTime": "21:00",
+      "TotalCost": "85000 JPY"
     },
     "United States of America": {
       "FlightDuration": "12 hours",
       "DepartureTime": "11:30",
-      "ArrivalTime": "23:30"
+      "ArrivalTime": "23:30",
+      "TotalCost": "95000 JPY"
     },
     "Germany": {
       "FlightDuration": "12 hours",
       "DepartureTime": "12:15",
-      "ArrivalTime": "00:15"
+      "ArrivalTime": "00:15",
+      "TotalCost": "80000 JPY"
     },
     "United Kingdom": {
       "FlightDuration": "11 hours",
       "DepartureTime": "10:00",
-      "ArrivalTime": "21:00"
+      "ArrivalTime": "21:00",
+      "TotalCost": "90000 JPY"
     }
   }
 }

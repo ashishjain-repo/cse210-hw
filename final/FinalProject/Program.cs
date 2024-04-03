@@ -10,6 +10,35 @@ class Program
 {
     static void Main(string[] args)
     {
+        
+        void Spinner()
+        {
+            string[] spinnerSymbol = { "+", "|", "/", "-", "\\", "|", "/", "-", "\\", "|" };
+            foreach (string temp in spinnerSymbol)
+            {
+                Console.Write(temp);
+                Thread.Sleep(250);
+                Console.Write("\b \b");
+            }
+                Console.Clear();
+        }
+        bool BooleanResult(bool WhileLoop)
+        {
+            Console.Write("If you confirm this information enter 'Y'. If not enter 'N'");
+         string Prompt = Console.ReadLine();
+            if (Prompt == "Y" || Prompt == "y")
+            {
+                WhileLoop = false;
+                Console.WriteLine("Your information is Recorded. Thank You :)");
+                Spinner();
+            }
+            else
+            {
+                Console.WriteLine("Oops!!!");
+                Spinner();
+            }
+            return WhileLoop;
+        }
         string JsonFilePath = File.ReadAllText("serve.json");
         string AirlineJson = File.ReadAllText("airline.json");
         Dictionary<string, Dictionary<string, string>> JsonData =
@@ -17,19 +46,42 @@ class Program
         Dictionary<string, Dictionary<string, Dictionary<string, string>>> AirlineData =
             JsonSerializer.Deserialize<Dictionary<string, Dictionary<string, Dictionary<string, string>>>>(AirlineJson);
 
-        // Now you can access the deserialized flight data
-        string FirstName = "Ashish";
-        string LastName = "Jain";
-        int Age = 24;
-        string Email = "aj9013313373@gmail.com";
+        bool Basic = true;
+        string FirstName = null;
+        string LastName = null;
+        int Age = 0;
+        string Email = null;
+        while(Basic)
+        {
+            Console.Write("Please Enter Your First Name: ");
+            FirstName = Console.ReadLine();
+            Console.Write("Please Enter Your Last Name: ");
+            LastName = Console.ReadLine();
+            Console.Write("Please Enter Your Age: ");
+            Age = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Please Enter Your Full Email: ");
+            Email = Console.ReadLine();
+            Console.WriteLine("Full Name: {0} {1}, Age: {2}, and Email: {3}",FirstName, LastName, Age, Email);
+            //Console.Write("If you confirm this information enter 'Y'. If not enter 'N'");
+            Basic = BooleanResult(Basic);
+            //Basic = (Pass == "Y" || Pass == "y") ? false : true;
+            //if(Basic == true) { Spinner(); }
+        }
 
 
         // Part - 1
-        Passenger User = new(FirstName, LastName, Age, Email);
-        User.Greeting();
-        string CountryFrom;
-        string CountryTo;
-        (CountryFrom, CountryTo) = User.WhereWeGo(JsonData);
+        bool PartOne = true;
+        string CountryFrom = null;
+        string CountryTo = null;
+        while (PartOne) 
+        {
+            Passenger User = new(FirstName, LastName, Age, Email);
+            User.Greeting();
+            (CountryFrom, CountryTo) = User.WhereWeGo(JsonData);
+            Console.WriteLine("Travelling Country, From: {0}, To: {1}",CountryFrom, CountryTo);
+            PartOne = BooleanResult(PartOne);
+        }
+        
 
         // Part - 2
         Console.WriteLine($"From: {CountryFrom} - To: {CountryTo}");
@@ -70,9 +122,13 @@ class Program
             Seat = UserBooking.SelectSeat();
         }
 
-        // Part - 7   
+        // Part - 7
+        Payment UserPayment = new(FirstName, LastName, Age, Email, AirlineData, CountryFrom, CountryTo);
+        string Amount = UserPayment.FlightCost();
+
+        // Part - 8   
         Receipt UserReceipt = new(FirstName, LastName, Age, Email, CountryFrom, CountryTo, AirportFrom, AirportTo,
-            Duration, Departure, Arrival, Seat);
+            Duration, Departure, Arrival, Seat, Amount);
         UserReceipt.ShowReceipt();
     }
 }
