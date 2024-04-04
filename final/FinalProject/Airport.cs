@@ -32,7 +32,7 @@ class Airport : Passenger
 
             Console.Write("Please enter the departure airport code: ");
             fromChoice = Console.ReadLine();
-            if (!fromKeyVal.Any(pair => pair.Code == fromChoice))
+            if (!fromKeyVal.Any(pair => pair.Code == fromChoice.ToUpper()))
             {
                 fromBool = true;
                 Console.WriteLine("Please choose only given options.");
@@ -52,7 +52,7 @@ class Airport : Passenger
 
             Console.Write("Please enter the arrival airport code: ");
             toChoice = Console.ReadLine();
-            if (!toKeyVal.Any(pair => pair.Code == toChoice))
+            if (!toKeyVal.Any(pair => pair.Code == toChoice.ToUpper()))
             {
                 toBool = true;
                 Console.WriteLine("Please choose only given options.");
@@ -63,6 +63,6 @@ class Airport : Passenger
             }
         }
 
-        return (fromChoice, toChoice);
+        return (fromChoice.ToUpper(), toChoice.ToUpper());
     }
 }
