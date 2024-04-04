@@ -32,8 +32,8 @@ After completing the steps above, the program will generate a receipt displaying
 ### Example Image 3: Airport Confirmation
 ![Airport Confirmation](./img/ex-3.png)
 
-### Example Image 3: Seat Confirmation
+### Example Image 4: Seat Confirmation
 ![Seat Confirmation](./img/ex-4.png)
 
-### Example Image 3: Receipt
+### Example Image 5: Receipt
 ![Receipt](./img/ex-5.png)
