@@ -10,7 +10,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        
+
         void Spinner()
         {
             string[] spinnerSymbol = { "+", "|", "/", "-", "\\", "|", "/", "-", "\\", "|" };
@@ -20,12 +20,12 @@ class Program
                 Thread.Sleep(250);
                 Console.Write("\b \b");
             }
-                Console.Clear();
+            Console.Clear();
         }
         bool BooleanResult(bool WhileLoop)
         {
             Console.Write("If you confirm this information enter 'Y'. If not enter 'N'");
-         string Prompt = Console.ReadLine();
+            string Prompt = Console.ReadLine();
             if (Prompt == "Y" || Prompt == "y")
             {
                 WhileLoop = false;
@@ -51,7 +51,7 @@ class Program
         string LastName = null;
         int Age = 0;
         string Email = null;
-        while(Basic)
+        while (Basic)
         {
             Console.Write("Please Enter Your First Name: ");
             FirstName = Console.ReadLine();
@@ -61,11 +61,9 @@ class Program
             Age = Convert.ToInt32(Console.ReadLine());
             Console.Write("Please Enter Your Full Email: ");
             Email = Console.ReadLine();
-            Console.WriteLine("Full Name: {0} {1}, Age: {2}, and Email: {3}",FirstName, LastName, Age, Email);
-            //Console.Write("If you confirm this information enter 'Y'. If not enter 'N'");
+            Console.WriteLine("Full Name: {0} {1}, Age: {2}, and Email: {3}", FirstName, LastName, Age, Email);
             Basic = BooleanResult(Basic);
-            //Basic = (Pass == "Y" || Pass == "y") ? false : true;
-            //if(Basic == true) { Spinner(); }
+            
         }
 
 
@@ -73,53 +71,67 @@ class Program
         bool PartOne = true;
         string CountryFrom = null;
         string CountryTo = null;
-        while (PartOne) 
+        while (PartOne)
         {
             Passenger User = new(FirstName, LastName, Age, Email);
             User.Greeting();
             (CountryFrom, CountryTo) = User.WhereWeGo(JsonData);
-            Console.WriteLine("Travelling Country, From: {0}, To: {1}",CountryFrom, CountryTo);
+            Console.WriteLine("Travelling Country, From: {0}, To: {1}", CountryFrom, CountryTo);
             PartOne = BooleanResult(PartOne);
         }
-        
+
 
         // Part - 2
-        Console.WriteLine($"From: {CountryFrom} - To: {CountryTo}");
-        Airport UserAirport = new(FirstName, LastName, Age, Email, CountryFrom, CountryTo);
-        string AirportFrom;
-        string AirportTo;
-        (AirportFrom, AirportTo) = UserAirport.ChooseAirport(CountryFrom, CountryTo, JsonData);
+        bool PartTwo = true;
+        string AirportFrom = null;
+        string AirportTo = null;
+        while (PartTwo)
+        {
+            Console.WriteLine($"From: {CountryFrom} - To: {CountryTo}");
+            Airport UserAirport = new(FirstName, LastName, Age, Email, CountryFrom, CountryTo);
+            (AirportFrom, AirportTo) = UserAirport.ChooseAirport(CountryFrom, CountryTo, JsonData);
+            Console.WriteLine("Departing Airport: {0}, Arriving Airport: {1}", AirportFrom, AirportTo);
+            PartTwo = BooleanResult(PartTwo);
+        }
+
 
         // Part - 3
-        Airline UserAirline = new(FirstName, LastName, Age, Email, AirportFrom, AirportTo);
-        string Duration;
-        string Departure;
-        string Arrival;
-        (Duration, Departure, Arrival) = UserAirline.FlightDetails(CountryFrom, CountryTo, AirlineData);
+        string Duration = null;
+        string Departure = null;
+        string Arrival = null;
+            Airline UserAirline = new(FirstName, LastName, Age, Email, AirportFrom, AirportTo);
+            (Duration, Departure, Arrival) = UserAirline.FlightDetails(CountryFrom, CountryTo, AirlineData);
+            
+        
 
         // Part - 4,5,6
-        bool Item = true;
+        bool PartFourToSix = true;
         int Choice = 0;
         int Seat = 0;
-        while (Item)
+        while (PartFourToSix)
         {
-            Console.WriteLine("Enter 1 for Business Class and 0 for Economy Class");
-            Choice = Convert.ToInt32(Console.ReadLine());
-            if (Choice == 0 || Choice == 1)
+            bool Item = true;
+            while (Item)
             {
-                Item = false;
+                Console.WriteLine("Enter 1 for Business Class and 0 for Economy Class");
+                Choice = Convert.ToInt32(Console.ReadLine());
+                if (Choice == 0 || Choice == 1)
+                {
+                    Item = false;
+                }
             }
-        }
 
-        if (Choice == 0)
-        {
-            Booking UserBooking = new EconomyBooking(Duration, Departure, Arrival);
-            Seat = UserBooking.SelectSeat();
-        }
-        else if (Choice == 1)
-        {
-            Booking UserBooking = new BusinessBooking(Duration, Departure, Arrival);
-            Seat = UserBooking.SelectSeat();
+            if (Choice == 0)
+            {
+                Booking UserBooking = new EconomyBooking(Duration, Departure, Arrival);
+                Seat = UserBooking.SelectSeat();
+            }
+            else if (Choice == 1)
+            {
+                Booking UserBooking = new BusinessBooking(Duration, Departure, Arrival);
+                Seat = UserBooking.SelectSeat();
+            }
+            PartFourToSix = BooleanResult(PartFourToSix);
         }
 
         // Part - 7
