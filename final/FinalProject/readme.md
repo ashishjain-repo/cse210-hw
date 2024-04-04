@@ -23,11 +23,17 @@ After completing the steps above, the program will generate a receipt displaying
 
 ---
 
-### Example Image 1: Greeting Message
-![Greeting Message](image_url)
+### Example Image 1: User Information
+![User Information](./img/ex-1.png)
 
-### Example Image 2: Seat Selection
-![Seat Selection](image_url)
+### Example Image 2: Country Confirmation
+![Country Confirmation](./img/ex-2.png)
+
+### Example Image 3: Airport Confirmation
+![Airport Confirmation](./img/ex-3.png)
+
+### Example Image 3: Seat Confirmation
+![Seat Confirmation](./img/ex-4.png)
 
 ### Example Image 3: Receipt
-![Receipt](image_url)
+![Receipt](./img/ex-5.png)

@@ -30,7 +30,7 @@ class Airport : Passenger
                 Console.WriteLine($"Airport: {pair.Name} => Airport Code: {pair.Code}");
             }
 
-            Console.WriteLine("Please enter the departure airport code: ");
+            Console.Write("Please enter the departure airport code: ");
             fromChoice = Console.ReadLine();
             if (!fromKeyVal.Any(pair => pair.Code == fromChoice))
             {
@@ -50,7 +50,7 @@ class Airport : Passenger
                 Console.WriteLine($"Airport: {pair.Name} => Airport Code: {pair.Code}");
             }
 
-            Console.WriteLine("Please enter the arrival airport code: ");
+            Console.Write("Please enter the arrival airport code: ");
             toChoice = Console.ReadLine();
             if (!toKeyVal.Any(pair => pair.Code == toChoice))
             {

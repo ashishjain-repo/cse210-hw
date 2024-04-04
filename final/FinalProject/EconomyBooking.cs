@@ -35,7 +35,7 @@
                 Index++;
                 Console.WriteLine($"{Index}: Seat Number: {Numbers[i]}");
             }
-
+            Console.Write("Please choose from options above: ");
             Choice = Convert.ToInt32(Console.ReadLine());
             if (Choice < 4 && Choice > 0)
             {
